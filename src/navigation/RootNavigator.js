@@ -17,6 +17,9 @@ import FavoritesComponent from "../components/MainComponents/Favorites/Favorites
 import AuthComponent from "../components/Auth/AuthComponent";
 import CatalogSelectMarkComponent from "../components/MainComponents/Catalog/CatalogSelectMark/CatalogSelectMarkComponent";
 import CatalogSelectModelComponent from "../components/MainComponents/Catalog/CatalogSelectModel/CatalogSelectModelComponent";
+import CatalogSelectPakaleniComponent from "../components/MainComponents/Catalog/CatalogSelectPakaleni/CatalogSelectPakaleniComponent";
+import CatalogSelectModifikaciaComponent from "../components/MainComponents/Catalog/CatalogSelectModifikacia/CatalogSelectModifikaciaComponent";
+import CatalogSelectKomplektaciaComponent from "../components/MainComponents/Catalog/CatalogSelectKomplektacia/CatalogSelectKomplektaciaComponent";
 
 
 // const Tab = createBottomTabNavigator();
@@ -101,6 +104,36 @@ const RootNavigator = () => {
                 <Stack.Screen
                     name="CatalogSelectModelComponent"
                     component={CatalogSelectModelComponent}
+                    options={({route}) => ({
+                        tabBarButton: () => null,
+                        tabBarStyle: {display: 'none'},
+                    })}
+                />
+
+
+                <Stack.Screen
+                    name="CatalogSelectPakaleniComponent"
+                    component={CatalogSelectPakaleniComponent}
+                    options={({route}) => ({
+                        tabBarButton: () => null,
+                        tabBarStyle: {display: 'none'},
+                    })}
+                />
+
+
+                <Stack.Screen
+                    name="CatalogSelectModifikaciaComponent"
+                    component={CatalogSelectModifikaciaComponent}
+                    options={({route}) => ({
+                        tabBarButton: () => null,
+                        tabBarStyle: {display: 'none'},
+                    })}
+                />
+
+
+                <Stack.Screen
+                    name="CatalogSelectKomplektaciaComponent"
+                    component={CatalogSelectKomplektaciaComponent}
                     options={({route}) => ({
                         tabBarButton: () => null,
                         tabBarStyle: {display: 'none'},

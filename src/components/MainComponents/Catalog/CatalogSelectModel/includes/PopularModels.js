@@ -83,7 +83,7 @@ export default function App(props)
                 {popular_marks_items.map((item, index) => {
 
                     return (
-                        <TouchableOpacity key={index} style={styles.popularListItem}>
+                        <TouchableOpacity onPress={() => {props.navigation.navigate('CatalogSelectPakaleniComponent')}} key={index} style={styles.popularListItem}>
                             <Text style={styles.popularListItemText}>{item.title}</Text>
                         </TouchableOpacity>
                     )

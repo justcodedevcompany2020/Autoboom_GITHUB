@@ -11,7 +11,6 @@ import {
     Slider
 } from 'react-native';
 
-
 import {
     SafeAreaView,
     SafeAreaProvider,
@@ -20,32 +19,34 @@ import {
     initialWindowMetrics,
 } from 'react-native-safe-area-context';
 import {useSelector, useDispatch, } from 'react-redux';
-import {} from '../../../../redux/actions/actions';
+import {openModifikaciaPopUpInCatalogSelectModifikaciaPage} from '../../../../redux/actions/actions';
 
 // import SpecialOfferBlock from './includes/SpecialOffer';
 import NavigationBottomMenu from '../../../includes/NavigationBottomMenu';
 
-
 import Svg, {Defs, G, Path, Rect, Circle, ClipPath} from "react-native-svg";
 import {useEffect, useState} from "react";
 import FilterSvg from '../../../../../assets/Svg/search_component/FilterSvg';
+import OpenSelectMarkSvg from '../../../../../assets/Svg/OpenSelectMarkSvg';
 
-import PopularModelsBlock from "./includes/PopularModels";
-import ModelsPopup from "./includes/Popups/ModelsPopup";
-import SelectedMarkModel from "./includes/SelectedMarkModel";
+import ModifikaciaPopup from "./includes/Popups/ModifikaciaPopup";
 import PayYourCarBlock from "./includes/PayYourCarBlock";
 import MiniSvg from "../../../../../assets/Svg/auto_types/mini";
 import SpecialOfferBlock from "./includes/SpecialOffer";
 import BecomePartner from "../../includes/BecomePartner";
 import JournalBlock from "./includes/JournalBlock";
 import DillersBlock from "./includes/DillersBlock";
+import SliderAndOptions from "./includes/SliderAndOptions";
+import PriceStatistics from "./includes/PriceStatistics";
+import OnSaleToday from "./includes/OnSaleToday";
+import ModificationList from "./includes/ModificationList";
 
 export default function App(props)
 {
     // Redux
-    const {is_open_model_popup_in_catalog_select_model_page} = useSelector(state => state.justDriveReducer);
+    const {is_open_modifikacia_popup_in_catalog_select_modifikacia_page} = useSelector(state => state.justDriveReducer);
     const dispatch = useDispatch();
-    // const handleAddToAddressDataRedux = (to_address_data) => dispatch(addToAddressDataRedux(to_address_data));
+    const handleOpenModifikaciaPopUpInCatalogSelectModifikaciaPage = () => dispatch(openModifikaciaPopUpInCatalogSelectModifikaciaPage());
 
     const [active_top_tab1, setActiveTopTab1] = useState(true);
     const [active_top_tab2, setActiveTopTab2] = useState(false);
@@ -88,7 +89,6 @@ export default function App(props)
         {title: 'Группа PSA'  },
     ]);
 
-
     const [special_offers, setSpecialOffers] = useState([
         {image: require('../../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000'},
         {image: require('../../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000'},
@@ -107,21 +107,18 @@ export default function App(props)
 
     const [show_sort_popoup, setSortPopup] = useState(false)
 
-
-
-
     useEffect(() => {
 
     }, []);
 
-
-    // Попап выбора марки, открывается от Redux
-    if(is_open_model_popup_in_catalog_select_model_page)
+    // Попап выбора поколения, открывается от Redux
+    if(is_open_modifikacia_popup_in_catalog_select_modifikacia_page)
     {
         return (
-            <ModelsPopup/>
+            <ModifikaciaPopup navigation={props.navigation}/>
         )
     }
+
 
 
     return (
@@ -131,7 +128,7 @@ export default function App(props)
                 <View style={[styles.headerItem, styles.flex1 ]}>
                     <TouchableOpacity
                         onPress={() => {
-                            props.navigation.navigate('CatalogSelectMarkComponent')
+                            props.navigation.navigate('CatalogSelectPakaleniComponent')
                         }}
                         style={{}}
                     >
@@ -149,10 +146,9 @@ export default function App(props)
 
                 <View style={[styles.headerItem, styles.flex1, styles.headerItemRight ]}>
 
-                    <TouchableOpacity  style={{marginRight:16}}>
-                        <FilterSvg/>
+                    <TouchableOpacity  style={{}}>
+                        <OpenSelectMarkSvg/>
                     </TouchableOpacity>
-
 
                 </View>
 
@@ -162,25 +158,72 @@ export default function App(props)
             <ScrollView style={{width: '100%', flex:1}}>
 
                 <View style={{width:'100%', paddingHorizontal:16, marginBottom:16}}>
-                    <Text style={{fontSize:22, fontWeight:'bold', lineHeight:28}}>Ауди</Text>
+                    <Text style={{fontSize:22, fontWeight:'bold', lineHeight:28}}>Ауди SQ8 Спортбэк e-tron I рестайлинг кроссовер купе, 02.2023 — н.в.</Text>
                 </View>
 
-                <PopularModelsBlock navigation={props.navigation}/>
 
+                <View style={styles.inputWrapper}>
+
+                    <View style={styles.inputWrapperContainer}>
+
+                        <Text style={styles.inputWrapperContainerTitle}>Модель</Text>
+
+                        <View style={styles.inputWrapperContainer2}>
+                            <Text style={styles.inputWrapperContainer2Text}>SQ8</Text>
+                        </View>
+
+                    </View>
+
+                    <View style={styles.inputWrapperContainer}>
+                        <Text style={styles.inputWrapperContainerTitle}>Поколение</Text>
+                        <TouchableOpacity
+                            // onPress={() => {handleOpenModifikaciaPopUpInCatalogSelectModifikaciaPage()}}
+                            style={styles.inputWrapperContainer2}
+                        >
+                            <Text style={[styles.inputWrapperContainer2Text]}>I рестайлинг кр...</Text>
+                        </TouchableOpacity>
+                    </View>
+
+
+                    <View style={{width: '100%', marginTop:12}}>
+                        <Text style={styles.inputWrapperContainerTitle}>Модификация</Text>
+                        <TouchableOpacity
+                            onPress={() => {handleOpenModifikaciaPopUpInCatalogSelectModifikaciaPage()}}
+                            style={[styles.inputWrapperContainer2, {flexDirection:'row', justifyContent: 'space-between'}]}
+                        >
+                            <Text style={[styles.inputWrapperContainer2Text, {color:'#6C7693'}]}>Не выбрана</Text>
+
+                            <Svg style={{position: 'relative', top: 3}} width={11} height={16} viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <Path d="M2 1l7 7-7 7" stroke="#C4C8D4" strokeWidth={2} strokeLinecap="round"/>
+                            </Svg>
+                        </TouchableOpacity>
+                    </View>
+
+                </View>
+
+
+                <SliderAndOptions/>
 
                 <View style={{padding: 16}}>
-                    <Text style={{borderBottomWidth:1, borderColor: '#f1f1f1', width: '100%', paddingBottom: 16, lineHeight:24, color:'#091334'}}>
-                        Ауди - это не просто стиль, роскошь, вкус, комфорт, безопасность, качество и надёжность. Это - самая настоящая легенда! Бренд «Mercedes-Benz» оценивается в 60,355 млрд долларов, что вывело его на первое место рейтинга самых дорогих автомобильных брендов в 2019 году.
+                    <Text style={{borderBottomWidth:1, borderColor: '#E2E4EA', width: '100%', paddingBottom: 16, lineHeight:24, color:'#091334'}}>
+                        Ауди А1 — субкомпактный автомобиль В класса немецкого автопроизводителя Audi AG. Выпускается с 2010 года. Изначально был трёхдверным хетчбэком и только в конце 2011 года появился пятидверный. Современный автомобиль выпускается только в виде 5-дверного хетчбэка и уже в базовой комплектации имеет виртуальные приборы на экране
                     </Text>
                 </View>
 
-                <SelectedMarkModel/>
+
+                <PriceStatistics/>
+
+                <OnSaleToday/>
+                <ModificationList navigation={props.navigation}/>
+
+
                 <PayYourCarBlock/>
                 <SpecialOfferBlock data={special_offers}/>
                 <BecomePartner/>
 
                 <DillersBlock/>
                 <JournalBlock data={journal_data}/>
+
             </ScrollView>
 
             <NavigationBottomMenu navigation={props.navigation} active_page={''}/>
@@ -402,5 +445,37 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: 'bold',
         marginBottom: 20
-    }
+    },
+
+    inputWrapper: {
+        width:'100%',
+        flexDirection:'row',
+        justifyContent:'space-between',
+        flexWrap:'wrap',
+        paddingHorizontal:16,
+        marginBottom:16
+    },
+    inputWrapperContainer: {
+        width:'48%',
+        minHeight: 30,
+    },
+    inputWrapperContainerTitle: {
+        color: '#6C7694',
+        fontSize: 14,
+        marginBottom: 8
+    },
+    inputWrapperContainer2: {
+        width: '100%',
+        height: 44,
+        borderColor:'#C4C8D4',
+        borderWidth: 1,
+        borderRadius: 6,
+        justifyContent:'center',
+        alignItems:'flex-start',
+        padding: 10
+    },
+    inputWrapperContainer2Text: {
+        color: '#091334',
+        fontSize: 16
+    },
 })
