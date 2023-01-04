@@ -38,8 +38,6 @@ import JournalBlock from "./includes/JournalBlock";
 import DillersBlock from "./includes/DillersBlock";
 import SliderAndOptions from "./includes/SliderAndOptions";
 import PriceStatistics from "./includes/PriceStatistics";
-import OnSaleToday from "./includes/OnSaleToday";
-import ModificationList from "./includes/ModificationList";
 
 export default function App(props)
 {
@@ -119,7 +117,6 @@ export default function App(props)
                     <Text style={{fontSize:22, fontWeight:'bold', lineHeight:28}}>Ауди SQ8 Спортбэк e-tron I рестайлинг кроссовер купе, 02.2023 — н.в.</Text>
                 </View>
 
-
                 <View style={styles.inputWrapper}>
 
                     <View style={styles.inputWrapperContainer}>
@@ -176,12 +173,7 @@ export default function App(props)
                     </Text>
                 </View>
 
-
                 <PriceStatistics/>
-
-                <OnSaleToday/>
-                <ModificationList/>
-
 
                 <PayYourCarBlock/>
                 <SpecialOfferBlock data={special_offers}/>

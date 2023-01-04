@@ -62,8 +62,6 @@ const RootNavigator = () => {
                     })}
                 />
 
-
-
                 <Stack.Screen
                     name="SearchComponent"
                     component={SearchComponent}

@@ -57,7 +57,7 @@ export default function App(props)
        return (
            komplektacii.map((item, index) => {
                return (
-                   <TouchableOpacity style={styles.komplektacii_item}>
+                   <TouchableOpacity key={index} style={styles.komplektacii_item}>
 
                        <Text style={styles.komplektacii_item_text}>{item.title}</Text>
 

@@ -35,6 +35,7 @@ export const closeMarkiPopUpInCatalogSelectMarkPage = () => dispatch =>
 
 export const openModelPopUpInCatalogSelectModelPage = () => dispatch =>
 {
+
     // console.log(from_address_data, 'setFromAddressData ACTIONS');
 
     dispatch({
