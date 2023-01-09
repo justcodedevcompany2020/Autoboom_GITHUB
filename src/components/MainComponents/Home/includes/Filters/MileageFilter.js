@@ -22,16 +22,17 @@ import {
 } from 'react-native-safe-area-context';
 // import DropShadow from "react-native-drop-shadow";
 
-import Svg, {Defs, G, Path, Rect, Circle, ClipPath} from "react-native-svg";
-import {useEffect, useState} from "react";
+import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
+import { useEffect, useState } from "react";
 import CloseSvg from '../../../../../../assets/Svg/CloseSvg';
+
 
 export default function App(props) {
 
     // const [data, setData] = useState(props.data)
     const [data, setData] = useState()
     const [show_mileage_filter, setShowMileageFilter] = useState(true)
-
+    // const options = [{ value: 0, label: '0' }]
 
     useEffect(() => {
 
@@ -39,8 +40,7 @@ export default function App(props) {
 
     }, []);
 
-    if(show_mileage_filter)
-    {
+    if (show_mileage_filter) {
         return (
             <View style={styles.mainWrapper}>
                 <TouchableOpacity
@@ -62,7 +62,7 @@ export default function App(props) {
                                 setShowMileageFilter(false);
                             }}
                         >
-                            <CloseSvg/>
+                            <CloseSvg />
                         </TouchableOpacity>
                     </View>
 
@@ -91,53 +91,53 @@ const styles = StyleSheet.create({
         width: '100%',
         // flex:1,
         height: '100%',
-        position:'absolute',
+        position: 'absolute',
         bottom: 0,
         left: 0,
         // backgroundColor:'rgba(0,0,0,0.44)',
         zIndex: 5
     },
     closeSpaceButton: {
-        flex:1 ,
-        backgroundColor:'rgba(0,0,0,0.44)'
+        flex: 1,
+        backgroundColor: 'rgba(0,0,0,0.44)'
     },
     contentWrapper: {
         width: '100%',
         backgroundColor: 'white',
-        position:'absolute',
+        position: 'absolute',
         bottom: 0,
         left: 0,
         // height: 499,
-        flex:1,
+        flex: 1,
         borderTopRightRadius: 10,
         borderTopLeftRadius: 10
     },
     header: {
         width: '100%',
         height: 56,
-        flexDirection:'row',
+        flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems:'center'
+        alignItems: 'center'
     },
     mainTitle: {
         padding: 14,
         fontSize: 22,
         color: '#091334',
-        fontWeight:'bold'
+        fontWeight: 'bold'
     },
     footer: {
         width: '100%',
         height: 72,
         paddingHorizontal: 16,
-        justifyContent:"center",
-        alignItems:'center',
-        borderTopWidth:1,
+        justifyContent: "center",
+        alignItems: 'center',
+        borderTopWidth: 1,
         borderTopColor: '#F0F1F4'
     },
-    button:{
+    button: {
         width: '100%',
         height: 48,
-        backgroundColor:'#2B65EE',
+        backgroundColor: '#2B65EE',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 6

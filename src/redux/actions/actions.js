@@ -13,8 +13,10 @@ export const CLOSE_MODIFIKACIA_POPUP_IN_CATALOG_SELECT_MODIFIKACIA_PAGE = 'CLOSE
 export const OPEN_KOMPLEKTACIA_POPUP_IN_CATALOG_SELECT_KOMPLEKTACIA_PAGE = 'OPEN_KOMPLEKTACIA_POPUP_IN_CATALOG_SELECT_KOMPLEKTACIA_PAGE';
 export const CLOSE_KOMPLEKTACIA_POPUP_IN_CATALOG_SELECT_KOMPLEKTACIA_PAGE = 'CLOSE_KOMPLEKTACIA_POPUP_IN_CATALOG_SELECT_KOMPLEKTACIA_PAGE';
 
-export const openMarkiPopUpInCatalogSelectMarkPage = () => dispatch =>
-{
+export const OPEN_SELECT_DONE_POPUP_IN_CATALOG_SELECT_DONE_PAGE = 'OPEN_SELECT_DONE_POPUP_IN_CATALOG_SELECT_DONE_PAGE';
+export const CLOSE_SELECT_DONE_POPUP_IN_CATALOG_SELECT_DONE_PAGE = 'CLOSE_SELECT_DONE_POPUP_IN_CATALOG_SELECT_DONE_PAGE';
+
+export const openMarkiPopUpInCatalogSelectMarkPage = () => dispatch => {
     // console.log(from_address_data, 'setFromAddressData ACTIONS');
 
     dispatch({
@@ -23,8 +25,7 @@ export const openMarkiPopUpInCatalogSelectMarkPage = () => dispatch =>
     });
 }
 
-export const closeMarkiPopUpInCatalogSelectMarkPage = () => dispatch =>
-{
+export const closeMarkiPopUpInCatalogSelectMarkPage = () => dispatch => {
     // console.log(from_address_data, 'setFromAddressData ACTIONS');
 
     dispatch({
@@ -33,8 +34,7 @@ export const closeMarkiPopUpInCatalogSelectMarkPage = () => dispatch =>
     });
 }
 
-export const openModelPopUpInCatalogSelectModelPage = () => dispatch =>
-{
+export const openModelPopUpInCatalogSelectModelPage = () => dispatch => {
 
     // console.log(from_address_data, 'setFromAddressData ACTIONS');
 
@@ -44,8 +44,7 @@ export const openModelPopUpInCatalogSelectModelPage = () => dispatch =>
     });
 }
 
-export const closeModelPopUpInCatalogSelectModelPage = () => dispatch =>
-{
+export const closeModelPopUpInCatalogSelectModelPage = () => dispatch => {
     // console.log(from_address_data, 'setFromAddressData ACTIONS');
 
     dispatch({
@@ -55,8 +54,7 @@ export const closeModelPopUpInCatalogSelectModelPage = () => dispatch =>
 }
 
 
-export const openPakaleniPopUpInCatalogSelectPakaleniPage = () => dispatch =>
-{
+export const openPakaleniPopUpInCatalogSelectPakaleniPage = () => dispatch => {
     // console.log(from_address_data, 'setFromAddressData ACTIONS');
 
     dispatch({
@@ -65,8 +63,7 @@ export const openPakaleniPopUpInCatalogSelectPakaleniPage = () => dispatch =>
     });
 }
 
-export const closePakaleniPopUpInCatalogSelectPakaleniPage = () => dispatch =>
-{
+export const closePakaleniPopUpInCatalogSelectPakaleniPage = () => dispatch => {
     // console.log(from_address_data, 'setFromAddressData ACTIONS');
 
     dispatch({
@@ -76,8 +73,7 @@ export const closePakaleniPopUpInCatalogSelectPakaleniPage = () => dispatch =>
 }
 
 
-export const openModifikaciaPopUpInCatalogSelectModifikaciaPage = () => dispatch =>
-{
+export const openModifikaciaPopUpInCatalogSelectModifikaciaPage = () => dispatch => {
     // console.log(from_address_data, 'setFromAddressData ACTIONS');
 
     dispatch({
@@ -86,8 +82,7 @@ export const openModifikaciaPopUpInCatalogSelectModifikaciaPage = () => dispatch
     });
 }
 
-export const closeModifikaciaPopUpInCatalogSelectModifikaciaPage = () => dispatch =>
-{
+export const closeModifikaciaPopUpInCatalogSelectModifikaciaPage = () => dispatch => {
     // console.log(from_address_data, 'setFromAddressData ACTIONS');
 
     dispatch({
@@ -99,8 +94,7 @@ export const closeModifikaciaPopUpInCatalogSelectModifikaciaPage = () => dispatc
 
 
 
-export const openKomplektaciaPopUpInCatalogSelectKomplektaciaPage = () => dispatch =>
-{
+export const openKomplektaciaPopUpInCatalogSelectKomplektaciaPage = () => dispatch => {
     // console.log(from_address_data, 'setFromAddressData ACTIONS');
 
     dispatch({
@@ -109,12 +103,30 @@ export const openKomplektaciaPopUpInCatalogSelectKomplektaciaPage = () => dispat
     });
 }
 
-export const closeKomplektaciaPopUpInCatalogSelectKomplektaciaPage = () => dispatch =>
-{
+export const closeKomplektaciaPopUpInCatalogSelectKomplektaciaPage = () => dispatch => {
     // console.log(from_address_data, 'setFromAddressData ACTIONS');
 
     dispatch({
         type: CLOSE_KOMPLEKTACIA_POPUP_IN_CATALOG_SELECT_KOMPLEKTACIA_PAGE,
+        payload: null,
+    });
+}
+
+
+export const openSelectDonePopUpInCloseSelectDonePage = () => dispatch => {
+    // console.log(from_address_data, 'setFromAddressData ACTIONS');
+
+    dispatch({
+        type: OPEN_SELECT_DONE_POPUP_IN_CATALOG_SELECT_DONE_PAGE,
+        payload: null,
+    });
+}
+
+export const closeSelectDonePopUpInCloseSelectDonePage = () => dispatch => {
+    // console.log(from_address_data, 'setFromAddressData ACTIONS');
+
+    dispatch({
+        type: CLOSE_SELECT_DONE_POPUP_IN_CATALOG_SELECT_DONE_PAGE,
         payload: null,
     });
 }

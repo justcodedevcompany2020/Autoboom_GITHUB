@@ -24,8 +24,8 @@ import SpecialOfferBlock from './includes/SpecialOffer';
 import NavigationBottomMenu from '../../includes/NavigationBottomMenu';
 
 
-import Svg, {Defs, G, Path, Rect, Circle, ClipPath} from "react-native-svg";
-import {useEffect, useState} from "react";
+import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
+import { useEffect, useState } from "react";
 
 import SearchSvg from '../../../../assets/Svg/search_component/SearchSvg';
 import SortBySvg from '../../../../assets/Svg/search_component/SortBySvg';
@@ -37,24 +37,25 @@ import AutoCard from './includes/AutoCard';
 import BecomePartnerBlock from '../includes/BecomePartner';
 import SortByPopUp from './includes/SortByPopUp';
 import PriceFilter from "../Home/includes/Filters/PriceFilter";
+import TopNavigation from '../../../navigation/TopNavigation'
+import { useRoute } from '@react-navigation/native';
 
 
 
-export default function App(props)
-{
+export default function App(props) {
     const [active_top_tab1, setActiveTopTab1] = useState(true);
     const [active_top_tab2, setActiveTopTab2] = useState(false);
     const [active_top_tab3, setActiveTopTab3] = useState(false);
 
     const [see_ads, setSeeAds] = useState([
-        {image: require('../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000'},
-        {image: require('../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000'},
-        {image: require('../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000'},
-        {image: require('../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000'},
-        {image: require('../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000'},
-        {image: require('../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000'},
-        {image: require('../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000'},
-        {image: require('../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000'},
+        { image: require('../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000' },
+        { image: require('../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000' },
+        { image: require('../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000' },
+        { image: require('../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000' },
+        { image: require('../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000' },
+        { image: require('../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000' },
+        { image: require('../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000' },
+        { image: require('../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000' },
     ]);
 
     const [show_sort_popoup, setSortPopup] = useState(false)
@@ -64,81 +65,36 @@ export default function App(props)
     }, []);
 
 
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
 
-                <View style={[styles.headerItem, styles.flex1 ]}>
+                <View style={[styles.headerItem, styles.flex1]}>
 
                 </View>
 
 
-                <View style={[styles.headerItem, styles.flex2 ]}>
+                <View style={[styles.headerItem, styles.flex2]}>
                     <Text style={styles.appName}>
                         Поиск объявлений
                     </Text>
                 </View>
 
-                <View style={[styles.headerItem, styles.flex1, styles.headerItemRight ]}>
+                <View style={[styles.headerItem, styles.flex1, styles.headerItemRight]}>
                     <TouchableOpacity>
-                        <SearchSvg/>
+                        <SearchSvg />
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => {setSortPopup(!show_sort_popoup)}}>
-                        <SortBySvg/>
+                    <TouchableOpacity onPress={() => { setSortPopup(!show_sort_popoup) }}>
+                        <SortBySvg />
                     </TouchableOpacity>
 
                 </View>
 
             </View>
-
-            <View style={styles.scrollViewWrapper}>
-                <ScrollView horizontal={true} style={styles.scrollView}>
-
-                    <TouchableOpacity
-                        onPress={() => {}}
-                        style={styles.menuTopButton}
-                    >
-                        <Text style={[styles.menuTopButtonText,styles.menuTopButtonTextActive ]}>Объявления</Text>
-                        <View style={styles.menuTopButtonActiveLine}></View>
-
-                    </TouchableOpacity>
-
-
-                    <TouchableOpacity
-                        onPress={() => {
-                            props.navigation.navigate('CatalogSelectMarkComponent')
-                        }}
-                        style={styles.menuTopButton}
-                    >
-                        <Text style={[styles.menuTopButtonText ]}>Каталог</Text>
-
-                    </TouchableOpacity>
-
-
-                    <TouchableOpacity
-                        onPress={() => {}}
-                        style={styles.menuTopButton}
-                    >
-                        <Text style={[styles.menuTopButtonText ]}>Журнал</Text>
-
-                    </TouchableOpacity>
-
-
-                    <TouchableOpacity
-                        onPress={() => {}}
-                        style={styles.menuTopButton}
-                    >
-                        <Text style={[styles.menuTopButtonText ]}>Компании</Text>
-
-                    </TouchableOpacity>
-
-
-                </ScrollView>
-
-            </View>
-
-            <ScrollView style={{width: '100%', flex:1}}>
+            <TopNavigation navigation={props.navigation} />
+            <ScrollView style={{ width: '100%', flex: 1 }}>
 
                 <View style={styles.tabsBeegMainWrapper}>
                     <View style={styles.tabsMainWrapper}>
@@ -150,7 +106,7 @@ export default function App(props)
                                     setActiveTopTab2(false);
                                     setActiveTopTab3(false);
                                 }}
-                                style={[styles.flex1, styles.tabsItem, active_top_tab1 && styles.tabsItemActive] }
+                                style={[styles.flex1, styles.tabsItem, active_top_tab1 && styles.tabsItemActive]}
                             >
                                 <Text style={[styles.tabsItemText, active_top_tab1 && styles.tabsItemTextActive]}>Все</Text>
                             </TouchableOpacity>
@@ -161,7 +117,7 @@ export default function App(props)
                                     setActiveTopTab2(true);
                                     setActiveTopTab3(false);
                                 }}
-                                style={[styles.flex1, styles.tabsItem, active_top_tab2 && styles.tabsItemActive] }
+                                style={[styles.flex1, styles.tabsItem, active_top_tab2 && styles.tabsItemActive]}
                             >
                                 <Text style={[styles.tabsItemText, active_top_tab2 && styles.tabsItemTextActive]}>С пробегом</Text>
                             </TouchableOpacity>
@@ -172,7 +128,7 @@ export default function App(props)
                                     setActiveTopTab2(false);
                                     setActiveTopTab3(true);
                                 }}
-                                style={[styles.flex1, styles.tabsItem, active_top_tab3 && styles.tabsItemActive] }
+                                style={[styles.flex1, styles.tabsItem, active_top_tab3 && styles.tabsItemActive]}
                             >
                                 <Text style={[styles.tabsItemText, active_top_tab3 && styles.tabsItemTextActive]}>Новые</Text>
                             </TouchableOpacity>
@@ -182,12 +138,12 @@ export default function App(props)
                 <View style={styles.markAndFilterWrapper}>
 
                     <TouchableOpacity style={styles.markFilterButton}>
-                        <MarkSvg/>
+                        <MarkSvg />
                         <Text style={styles.markFilterButtonText}>Марки</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.markFilterButton}>
-                        <FilterSvg/>
+                        <FilterSvg />
                         <Text style={styles.markFilterButtonText}>Фильтры</Text>
                     </TouchableOpacity>
                 </View>
@@ -248,7 +204,7 @@ export default function App(props)
 
                         <View style={styles.markListItemWrapper}>
                             <TouchableOpacity style={styles.markListItemPress}>
-                                <Text style={[styles.markListItemPressText, {color: '#6C7693'}]}>Показать все</Text>
+                                <Text style={[styles.markListItemPressText, { color: '#6C7693' }]}>Показать все</Text>
                             </TouchableOpacity>
                         </View>
 
@@ -257,21 +213,21 @@ export default function App(props)
 
                 </View>
 
-                <AutoCard navigation={props.navigation}/>
-                <AutoCard navigation={props.navigation}/>
-                <AutoCard navigation={props.navigation}/>
+                <AutoCard navigation={props.navigation} />
+                <AutoCard navigation={props.navigation} />
+                <AutoCard navigation={props.navigation} />
 
-                <SpecialOfferBlock data={see_ads}/>
-                <BecomePartnerBlock/>
+                <SpecialOfferBlock data={see_ads} />
+                <BecomePartnerBlock />
 
             </ScrollView>
 
-            <NavigationBottomMenu navigation={props.navigation} active_page={'Search'}/>
+            <NavigationBottomMenu navigation={props.navigation} active_page={'Search'} />
 
 
             {show_sort_popoup &&
 
-                <SortByPopUp show={show_sort_popoup} onChange={() => {setSortPopup(!show_sort_popoup)}}/>
+                <SortByPopUp show={show_sort_popoup} onChange={() => { setSortPopup(!show_sort_popoup) }} />
 
             }
 
@@ -302,7 +258,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 56,
         // paddingHorizontal: 16,
-        flexDirection:'row',
+        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
     },
@@ -310,27 +266,27 @@ const styles = StyleSheet.create({
 
     },
     appName: {
-        fontSize:18,
-        fontWeight:'bold'
+        fontSize: 18,
+        fontWeight: 'bold'
     },
     profileButton: {
 
     },
 
     flex1: {
-      flex:1
+        flex: 1
     },
     flex2: {
-        flex:2,
-        justifyContent:'center',
-        alignItems:'center'
+        flex: 2,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     headerItem: {
         height: '100%',
     },
     headerItemRight: {
         flexDirection: 'row',
-        alignItems:'center'
+        alignItems: 'center'
     },
 
     menuTopButtonWrapper: {
@@ -338,17 +294,17 @@ const styles = StyleSheet.create({
         height: 36,
         // backgroundColor:'silver',
         // marginBottom: 24,
-        flexDirection:'row'
+        flexDirection: 'row'
     },
 
     menuTopButton: {
         flex: 1,
         marginRight: 24,
         height: 36,
-        borderBottomWidth:1,
+        borderBottomWidth: 1,
         borderBottomColor: 'white',
-        justifyContent:'flex-start',
-        alignItems:'center'
+        justifyContent: 'flex-start',
+        alignItems: 'center'
     },
     menuTopButtonText: {
         color: '#6C7693',
@@ -364,8 +320,8 @@ const styles = StyleSheet.create({
     menuTopButtonActiveLine: {
         width: '100%',
         height: 3,
-        backgroundColor:'#2B65EE',
-        position:'absolute',
+        backgroundColor: '#2B65EE',
+        position: 'absolute',
         bottom: 0,
         borderTopLeftRadius: 2,
         borderTopRightRadius: 2,
@@ -376,63 +332,63 @@ const styles = StyleSheet.create({
         marginBottom: 16
     },
     tabsMainWrapper: {
-        width:'100%',
-        padding:4,
-        height:40,
-        justifyContent:'center',
+        width: '100%',
+        padding: 4,
+        height: 40,
+        justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor:'#F0F1F4',
+        backgroundColor: '#F0F1F4',
         borderRadius: 8,
 
     },
     tabsWrapper: {
         width: '100%',
         height: '100%',
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'center',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
         borderRadius: 8,
-        backgroundColor:'#F0F1F4',
+        backgroundColor: '#F0F1F4',
     },
     tabsItem: {
         // height:'100%',
         height: '100%',
-        alignItems:'center',
-        justifyContent:'center',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     tabsItemText: {
-        textAlign:'center',
-        color:'#6C7693'
+        textAlign: 'center',
+        color: '#6C7693'
         // width: '100%',
         // height:'100%',
         // backgroundColor:'blue',
     },
     tabsItemActive: {
-        borderRadius:4,
-        backgroundColor:'white'
+        borderRadius: 4,
+        backgroundColor: 'white'
     },
     tabsItemTextActive: {
         color: '#091334'
     },
     markAndFilterWrapper: {
         width: '100%',
-        paddingHorizontal: 16 ,
-        flexDirection:'row',
-        justifyContent:'space-between',
+        paddingHorizontal: 16,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         marginBottom: 16
     },
     markFilterButton: {
         width: '49%',
         height: 44,
-        borderRadius:8,
+        borderRadius: 8,
         borderWidth: 1,
-        borderColor:'#C4C8D4',
-        flexDirection:'row',
-        justifyContent:'center',
-        alignItems:'center'
+        borderColor: '#C4C8D4',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     markFilterButtonText: {
-        fontSize:16,
+        fontSize: 16,
         color: '#091334',
         marginLeft: 12
     },
@@ -441,17 +397,17 @@ const styles = StyleSheet.create({
     markList: {
         width: '100%',
         paddingHorizontal: 16,
-        flexDirection:'row',
+        flexDirection: 'row',
         marginBottom: 20
     },
     markListContainer: {
-        flex:1
+        flex: 1
     },
     markListItemWrapper: {
         width: '100%',
         height: 24,
-        flexDirection:'row',
-        alignItems:'center',
+        flexDirection: 'row',
+        alignItems: 'center',
         marginBottom: 10
     },
     markListItemPress: {

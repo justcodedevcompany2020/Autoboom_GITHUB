@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 // import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -20,6 +20,9 @@ import CatalogSelectModelComponent from "../components/MainComponents/Catalog/Ca
 import CatalogSelectPakaleniComponent from "../components/MainComponents/Catalog/CatalogSelectPakaleni/CatalogSelectPakaleniComponent";
 import CatalogSelectModifikaciaComponent from "../components/MainComponents/Catalog/CatalogSelectModifikacia/CatalogSelectModifikaciaComponent";
 import CatalogSelectKomplektaciaComponent from "../components/MainComponents/Catalog/CatalogSelectKomplektacia/CatalogSelectKomplektaciaComponent";
+import CatalogSelectDone from '../components/MainComponents/Catalog/CatalogSelectDone/CatalogSelectDone'
+import JournalPage from '../components/MainComponents/Journal/JournalPage'
+import JournalSinglePage from '../components/MainComponents/Journal/JournalSinglePage/JournalSinglePage'
 
 
 // const Tab = createBottomTabNavigator();
@@ -47,54 +50,54 @@ const RootNavigator = () => {
                 <Stack.Screen
                     name="HomeComponent"
                     component={HomeComponent}
-                    options={({route}) => ({
+                    options={({ route }) => ({
                         tabBarButton: () => null,
-                        tabBarStyle: {display: 'none'},
+                        tabBarStyle: { display: 'none' },
                     })}
                 />
 
                 <Stack.Screen
                     name="AuthComponent"
                     component={AuthComponent}
-                    options={({route}) => ({
+                    options={({ route }) => ({
                         tabBarButton: () => null,
-                        tabBarStyle: {display: 'none'},
+                        tabBarStyle: { display: 'none' },
                     })}
                 />
 
                 <Stack.Screen
                     name="SearchComponent"
                     component={SearchComponent}
-                    options={({route}) => ({
+                    options={({ route }) => ({
                         tabBarButton: () => null,
-                        tabBarStyle: {display: 'none'},
+                        tabBarStyle: { display: 'none' },
                     })}
                 />
 
                 <Stack.Screen
                     name="SingleAdsComponent"
                     component={SingleAdsComponent}
-                    options={({route}) => ({
+                    options={({ route }) => ({
                         tabBarButton: () => null,
-                        tabBarStyle: {display: 'none'},
+                        tabBarStyle: { display: 'none' },
                     })}
                 />
 
                 <Stack.Screen
                     name="FavoritesComponent"
                     component={FavoritesComponent}
-                    options={({route}) => ({
+                    options={({ route }) => ({
                         tabBarButton: () => null,
-                        tabBarStyle: {display: 'none'},
+                        tabBarStyle: { display: 'none' },
                     })}
                 />
 
                 <Stack.Screen
                     name="CatalogSelectMarkComponent"
                     component={CatalogSelectMarkComponent}
-                    options={({route}) => ({
+                    options={({ route }) => ({
                         tabBarButton: () => null,
-                        tabBarStyle: {display: 'none'},
+                        tabBarStyle: { display: 'none' },
                     })}
                 />
 
@@ -102,9 +105,9 @@ const RootNavigator = () => {
                 <Stack.Screen
                     name="CatalogSelectModelComponent"
                     component={CatalogSelectModelComponent}
-                    options={({route}) => ({
+                    options={({ route }) => ({
                         tabBarButton: () => null,
-                        tabBarStyle: {display: 'none'},
+                        tabBarStyle: { display: 'none' },
                     })}
                 />
 
@@ -112,9 +115,9 @@ const RootNavigator = () => {
                 <Stack.Screen
                     name="CatalogSelectPakaleniComponent"
                     component={CatalogSelectPakaleniComponent}
-                    options={({route}) => ({
+                    options={({ route }) => ({
                         tabBarButton: () => null,
-                        tabBarStyle: {display: 'none'},
+                        tabBarStyle: { display: 'none' },
                     })}
                 />
 
@@ -122,9 +125,9 @@ const RootNavigator = () => {
                 <Stack.Screen
                     name="CatalogSelectModifikaciaComponent"
                     component={CatalogSelectModifikaciaComponent}
-                    options={({route}) => ({
+                    options={({ route }) => ({
                         tabBarButton: () => null,
-                        tabBarStyle: {display: 'none'},
+                        tabBarStyle: { display: 'none' },
                     })}
                 />
 
@@ -132,14 +135,36 @@ const RootNavigator = () => {
                 <Stack.Screen
                     name="CatalogSelectKomplektaciaComponent"
                     component={CatalogSelectKomplektaciaComponent}
-                    options={({route}) => ({
+                    options={({ route }) => ({
                         tabBarButton: () => null,
-                        tabBarStyle: {display: 'none'},
+                        tabBarStyle: { display: 'none' },
                     })}
                 />
 
-
-
+                <Stack.Screen
+                    name="CatalogSelectDone"
+                    component={CatalogSelectDone}
+                    options={({ route }) => ({
+                        tabBarButton: () => null,
+                        tabBarStyle: { display: 'none' },
+                    })}
+                />
+                <Stack.Screen
+                    name="JournalPage"
+                    component={JournalPage}
+                    options={({ route }) => ({
+                        tabBarButton: () => null,
+                        tabBarStyle: { display: 'none' },
+                    })}
+                />
+                <Stack.Screen
+                    name="JournalSinglePage"
+                    component={JournalSinglePage}
+                    options={({ route }) => ({
+                        tabBarButton: () => null,
+                        tabBarStyle: { display: 'none' },
+                    })}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );
