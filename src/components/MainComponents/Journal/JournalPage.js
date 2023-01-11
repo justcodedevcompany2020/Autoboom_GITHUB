@@ -73,12 +73,12 @@ export default function App(props) {
             </View>
             <TopNavigation navigation={props.navigation} />
             <ScrollView style={{ width: '100%', flex: 1 }} >
-                <PopularMarks />
+                <PopularMarks navigation={props.navigation} />
                 <Journale navigation={props.navigation} data={journale} />
-                <CitySlider navigation={props.navigation}  data={cityJournale} menus={journal_menus} />
-                <NewsBlock title={'Самые быстрые'} data={news} />
-                <NewsBlock title={'Семейные'} data={news} />
-                <NewsBlock title={'Супер экономичные'} data={news} />
+                <CitySlider navigation={props.navigation} data={cityJournale} menus={journal_menus} />
+                <NewsBlock title={'Самые быстрые'} data={news} navigation={props.navigation} />
+                <NewsBlock title={'Семейные'} data={news} navigation={props.navigation} />
+                <NewsBlock title={'Супер экономичные'} data={news} navigation={props.navigation} />
                 <AllThemes />
             </ScrollView>
             <NavigationBottomMenu navigation={props.navigation} active_page={'Search'} />

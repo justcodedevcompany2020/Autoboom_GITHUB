@@ -8,17 +8,12 @@ import {
     TouchableHighlight,
     ScrollView,
     Image,
-    Slider
+    Slider,
+    TextInput
 } from 'react-native';
 
 export default function App(props) {
     return (
-        <View>
-
-        </View>
+        <View></View>
     )
 }
-
-const styles = StyleSheet.create({
-    
-})

@@ -62,7 +62,9 @@ export default function App(props) {
                     <Text style={styles.categoryItemText}>Журнал</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.categoryItem}>
+                <TouchableOpacity
+                  onPress={() => props.navigation.navigate('CompanyScreen')}
+                style={styles.categoryItem}>
                     <CompaniesSvg />
                     <Text style={styles.categoryItemText}>Компании</Text>
                 </TouchableOpacity>

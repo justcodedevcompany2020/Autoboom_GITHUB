@@ -12,7 +12,8 @@ import {
 } from 'react-native';
 
 import { useSelector, useDispatch, } from 'react-redux';
-import { openMarkiPopUpInCatalogSelectMarkPage } from '../../../../redux/actions/actions';
+import { openModelPopUpInCatalogSelectModelPage } from '../../../../../redux/actions/actions';
+
 import {
     SafeAreaView,
     SafeAreaProvider,
@@ -27,7 +28,6 @@ import {
 
 import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
 import { useEffect, useState } from "react";
-import MarksIcon from '../../../../../assets/Svg/journal/MarksIcon'
 
 
 
@@ -35,7 +35,7 @@ export default function App(props) {
     // Redux
     const { is_open_marki_popup_in_catalog_select_mark_page } = useSelector(state => state.justDriveReducer);
     const dispatch = useDispatch();
-    const handleOpenMarkiPopUpInCatalogSelectMarkPage = () => dispatch(openMarkiPopUpInCatalogSelectMarkPage());
+    const handleOpenModelPopUpInCatalogSelectModelPage = () => dispatch(openModelPopUpInCatalogSelectModelPage());
 
 
     const [active_top_tab1, setActiveTopTab1] = useState(true);
@@ -43,22 +43,12 @@ export default function App(props) {
     const [active_top_tab3, setActiveTopTab3] = useState(false);
 
     const [popular_marks_items, setPopularMarksList] = useState([
-        { title: 'Ауди', },
-        { title: 'Митсубиши', },
-        { title: 'Ниссан', },
-        { title: 'Фольксваген', },
-        { title: 'Дачия', },
-        { title: 'Мерседес', },
-        { title: 'Фольксваген', },
-        { title: 'Ниссан', },
-        { title: 'Джип', },
-        { title: 'Ситроен', },
-        { title: 'Ауди', },
-        { title: 'Митсубиши', },
-        { title: 'Ниссан', },
-        { title: 'Фольксваген', },
-        { title: 'Дачия', },
-
+        { title: 'C40 Recharge', },
+        { title: 'V60 Super Country31', },
+        { title: 'S60', },
+        { title: 'V90', },
+        { title: 'S90', },
+        { title: 'V90 Cross Country...' }
     ]);
 
     const [show_sort_popoup, setSortPopup] = useState(false)
@@ -71,23 +61,23 @@ export default function App(props) {
 
     return (
         <View style={styles.popularWrapper}>
+            <View style={styles.popularHeader} >
+                <Text style={styles.boldText} >Ауди</Text>
+                <Image
+                    style={{ width: 44, height: 44 }}
+                    source={require('../../../../../../assets/images/audi.png')} />
+            </View>
 
             <Text style={styles.title}>
-                Статьи по популярным{'\n'}маркам
+                Популярные марки
             </Text>
-
 
             <View style={styles.popularList}>
 
                 {popular_marks_items.map((item, index) => {
 
                     return (
-                        <TouchableOpacity
-                            onPress={() => {
-                                props.navigation.navigate('JournalMarks')
-                            }}
-                            key={index} style={styles.popularListItem}
-                        >
+                        <TouchableOpacity onPress={() => { props.navigation.navigate('JournalSinglePage') }} key={index} style={styles.popularListItem}>
                             <Text style={styles.popularListItemText}>{item.title}</Text>
                         </TouchableOpacity>
                     )
@@ -95,13 +85,13 @@ export default function App(props) {
                 })}
             </View>
 
-            <TouchableOpacity style={styles.openButton} onPress={() => { handleOpenMarkiPopUpInCatalogSelectMarkPage() }}>
-                <View style={styles.buttonDiv} >
-                    <MarksIcon />
-                    <Text style={styles.openButtonText}>Все марки</Text>
-                </View>
+            <TouchableOpacity style={styles.openButton} onPress={() => { handleOpenModelPopUpInCatalogSelectModelPage() }}>
+                <Text style={styles.openButtonText}>Показать все модели</Text>
             </TouchableOpacity>
 
+            <View style={{ width: '100%', height: 1, backgroundColor: '#f1f1f1', marginTop: 16 }}>
+
+            </View>
         </View>
     );
 }
@@ -115,10 +105,8 @@ const styles = StyleSheet.create({
     },
     title: {
         color: '#091334',
-        fontSize: 22,
-        fontWeight: '700',
-        marginBottom: 16,
-        lineHeight: 28
+        fontSize: 16,
+        marginBottom: 16
     },
     popularList: {
         width: '100%',
@@ -126,7 +114,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     popularListItem: {
-        width: '33%',
+        width: '48%',
         marginBottom: 16
     },
     popularListItemText: {
@@ -145,11 +133,16 @@ const styles = StyleSheet.create({
     },
     openButtonText: {
         color: '#091334',
-        fontSize: 16,
-        marginLeft: 5
+        fontSize: 16
     },
-    buttonDiv: {
+    boldText: {
+        fontSize: 24,
+        fontWeight: '700',
+        color: '#091334'
+    },
+    popularHeader: {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'space-between'
     }
 })

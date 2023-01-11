@@ -23,6 +23,9 @@ import CatalogSelectKomplektaciaComponent from "../components/MainComponents/Cat
 import CatalogSelectDone from '../components/MainComponents/Catalog/CatalogSelectDone/CatalogSelectDone'
 import JournalPage from '../components/MainComponents/Journal/JournalPage'
 import JournalSinglePage from '../components/MainComponents/Journal/JournalSinglePage/JournalSinglePage'
+import JournalThemes from '../components/MainComponents/Journal/JournalThemes/JournalThems'
+import JournalMarks from '../components/MainComponents/Journal/JournalMarks/JournalMarks'
+import CompanyScreen from '../components/MainComponents/Company/CompanyScreen'
 
 
 // const Tab = createBottomTabNavigator();
@@ -160,6 +163,30 @@ const RootNavigator = () => {
                 <Stack.Screen
                     name="JournalSinglePage"
                     component={JournalSinglePage}
+                    options={({ route }) => ({
+                        tabBarButton: () => null,
+                        tabBarStyle: { display: 'none' },
+                    })}
+                />
+                <Stack.Screen
+                    name="JournalThemes"
+                    component={JournalThemes}
+                    options={({ route }) => ({
+                        tabBarButton: () => null,
+                        tabBarStyle: { display: 'none' },
+                    })}
+                />
+                <Stack.Screen
+                    name="JournalMarks"
+                    component={JournalMarks}
+                    options={({ route }) => ({
+                        tabBarButton: () => null,
+                        tabBarStyle: { display: 'none' },
+                    })}
+                />
+                <Stack.Screen
+                    name="CompanyScreen"
+                    component={CompanyScreen}
                     options={({ route }) => ({
                         tabBarButton: () => null,
                         tabBarStyle: { display: 'none' },

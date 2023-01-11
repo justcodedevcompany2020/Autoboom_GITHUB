@@ -13,19 +13,20 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
-import Share from '../../../../../assets/Svg/journal/Share'
-import Publish from './includes/Publish'
-import Description from './includes/Description'
-import CarsNews from './includes/CarsNews'
-import News from './includes/News'
-import Select from './includes/Select'
-import ShareinSocial from './includes/ShareInSocial'
-import SliderBlock from './includes/SliderBlock'
+import Journale from '../includes/Journale'
 import NavigationBottomMenu from '../../../includes/NavigationBottomMenu'
 
 export default function App(props) {
+    const [journale, setJournale] = React.useState([
+        { title: 'Ниссан Джук совершенствуется', date: '28 Октября 2022', image: require('../../../../../assets/images/journaleauto.png'), menuid: 1 },
+        { title: 'Новый Тойота Ленд Крузер 2023 года: ждите, скоро буду', date: '28 Октября 2022', image: require('../../../../../assets/images/journaleauto.png'), menuid: 1 },
+        { title: 'Ниссан Джук совершенствуется', date: '28 Октября 2022', image: require('../../../../../assets/images/journaleauto.png'), menuid: 1 },
+        { title: 'Новый Тойота Ленд Крузер 2023 года: ждите, скоро буду', date: '28 Октября 2022', image: require('../../../../../assets/images/journaleauto.png'), menuid: 1 },
+        { title: 'Ниссан Джук совершенствуется', date: '28 Октября 2022', image: require('../../../../../assets/images/journaleauto.png'), menuid: 1 },
+        { title: 'Новый Тойота Ленд Крузер 2023 года: ждите, скоро буду', date: '28 Октября 2022', image: require('../../../../../assets/images/journaleauto.png'), menuid: 1 },
+    ]);
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.container} >
             <View style={styles.header}>
                 <View style={[styles.headerItem, styles.flex1]}>
                     <TouchableOpacity
@@ -42,30 +43,18 @@ export default function App(props) {
 
                 <View style={[styles.headerItem, styles.flex2]}>
                     <View style={styles.headerProf} >
-                        <Image
-                            style={{ width: 24, height: 24 }}
-                            source={require('../../../../../assets/images/proficon.png')} />
-                        <Text style={styles.appName} >Рахим Фарт</Text>
+                        <Text style={styles.appName} >Журнал</Text>
                     </View>
-                    <Text style={styles.desc} >
-                        9 декабря 2022
-                    </Text>
                 </View>
-
-                <View style={[styles.headerItem, styles.flex1, styles.headerItemRight]}>
-                    <TouchableOpacity style={{}}>
-                        <Share />
-                    </TouchableOpacity>
-                </View>
+                <View style={[styles.headerItem, styles.flex1, styles.headerItemRight]}></View>
             </View>
-            <ScrollView style={{ width: '100%', flex: 1 }} >
-                <Publish />
-                <Description />
-                <CarsNews />
-                <News />
-                <Select />
-                <ShareinSocial />
-                <SliderBlock />
+            <ScrollView style={{ width: '100%', flex: 1 }}>
+                <View style={styles.boldTextView}>
+                    <View style={styles.borderView}>
+                        <Text style={styles.boldText} >Бюджетные кроссоверы</Text>
+                    </View>
+                </View>
+                <Journale navigation={props.navigation} data={journale} />
             </ScrollView>
             <NavigationBottomMenu navigation={props.navigation} active_page={''} />
         </SafeAreaView>
@@ -99,10 +88,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: 10
     },
-    profileButton: {
-
-    },
-
     flex1: {
         flex: 1
     },
@@ -121,9 +106,17 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         marginRight: 15
     },
-    desc: {
-        color: '#6C7693',
-        fontSize: 12,
-        marginTop: 5
+    boldTextView: {
+        padding: 16,
+
+    },
+    boldText: {
+        fontSize: 24,
+        color: '#091334',
+        fontWeight: '700'
+    },
+    borderView: {
+        paddingBottom: 20,
+        borderBottomWidth: 3
     }
 })

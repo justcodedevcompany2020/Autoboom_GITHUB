@@ -126,7 +126,9 @@ export default function App(props) {
                             <Text style={styles.menuContentItemText}>Журнал</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.menuContentItem}>
+                        <TouchableOpacity 
+                        onPress={() => props.navigation.navigate('CompanyScreen')}
+                        style={styles.menuContentItem}>
                             <Svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><G clipPath="url(#clip0_10820_32406)"><Path d="M21 18.99c0 .006.005.01.01.01H22a1 1 0 110 2H2a1 1 0 110-2h.99a.01.01 0 00.01-.01V4a1 1 0 011-1h10a1 1 0 011 1v14.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5v-7.485a.015.015 0 00-.015-.015H17a1 1 0 110-2h3a1 1 0 011 1v8.99zM5.5 5a.5.5 0 00-.5.5v13a.5.5 0 00.5.5h7a.5.5 0 00.5-.5v-13a.5.5 0 00-.5-.5h-7zM7 12a1 1 0 011-1h2a1 1 0 110 2H8a1 1 0 01-1-1zm0-4a1 1 0 011-1h2a1 1 0 110 2H8a1 1 0 01-1-1z" fill="#091334" /></G><Defs><ClipPath id="clip0_10820_32406"><Path fill="#fff" transform="translate(1 3)" d="M0 0H22V18H0z" /></ClipPath></Defs></Svg>
                             <Text style={styles.menuContentItemText}>Компании</Text>
                         </TouchableOpacity>

@@ -16,13 +16,18 @@ export default function App(props) {
         <View style={styles.container} >
             <View style={styles.containerHeader} >
                 <Text style={styles.boldText} >{props.title}</Text>
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={() => {props.navigation.navigate('JournalThemes')}}
+                >
                     <Text style={styles.blueText} >Все</Text>
                 </TouchableOpacity>
             </View>
             {props.data.map((item, index) => {
                 return (
-                    <TouchableOpacity key={index} style={styles.Item}>
+                    <TouchableOpacity
+                        onPress={() => props.navigation.navigate('JournalSinglePage')}
+                        key={index} 
+                        style={styles.Item}>
                         <Image
                             style={{ width: 120, height: 82, borderRadius: 8 }}
                             source={item.image} />
@@ -73,7 +78,7 @@ const styles = StyleSheet.create({
         lineHeight: 24,
         fontWeight: '400',
         color: '#091334',
-        marginLeft:20
+        marginLeft: 20
     },
     postsWrapper: {
         padding: 15,

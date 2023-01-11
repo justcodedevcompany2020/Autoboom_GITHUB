@@ -58,11 +58,11 @@ export default function App(props) {
 
 
                 <TouchableOpacity
-                    onPress={() => { }}
+                  onPress={() => props.navigation.navigate('CompanyScreen')}
                     style={styles.menuTopButton}
                 >
-                    <Text style={[styles.menuTopButtonText]}>Компании</Text>
-
+                    <Text style={[styles.menuTopButtonText, route.name == 'CompanyScreen' ? styles.menuTopButtonTextActive : null]}>Компании</Text>
+                    {route.name === 'CompanyScreen' && <View style={styles.menuTopButtonActiveLine}></View>}
                 </TouchableOpacity>
 
 
