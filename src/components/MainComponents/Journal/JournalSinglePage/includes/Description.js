@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     descriptionDiv: {
         borderLeftWidth: 4,
         borderLeftColor: '#FFC895',
-        height: 232,
+        // height: 272,
         position: 'relative',
         paddingLeft: 24,
 
