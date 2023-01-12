@@ -20,9 +20,10 @@ import {
     initialWindowMetrics,
 } from 'react-native-safe-area-context';
 
-import Svg, {Defs, G, Path, Rect, Circle, ClipPath} from "react-native-svg";
-import {useEffect, useState} from "react";
+import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
+import { useEffect, useState } from "react";
 import SpecialOfferSvg from '../../../../../assets/Svg/search_component/SpecialOfferSvg';
+import GrayCircle from '../../../../../assets/Svg/CircleGray'
 
 export default function App(props) {
 
@@ -34,38 +35,44 @@ export default function App(props) {
     }, []);
 
     return (
-       <View style={styles.newAdsWrapper}>
+        <View style={styles.newAdsWrapper}>
 
-           <View style={{flexDirection:'row'}}>
-               <SpecialOfferSvg style={{marginRight: 16}}/>
-               <Text style={styles.mainTitle}> Спецпредложения</Text>
+            <View style={{ flexDirection: 'row' }}>
+                <SpecialOfferSvg style={{ marginRight: 16 }} />
+                <Text style={styles.mainTitle}> Спецпредложения</Text>
 
-           </View>
+            </View>
 
-           <ScrollView horizontal={true} style={{width: '100%'}}>
+            <ScrollView horizontal={true} style={{ width: '100%' }}>
 
-               {data.map((item, index) => {
+                {data.map((item, index) => {
 
-                   return (
+                    return (
 
-                       <TouchableOpacity key={index} style={styles.newAdsWrapperItem}>
+                        <TouchableOpacity key={index} style={styles.newAdsWrapperItem}>
 
-                           <View style={styles.newAdsWrapperItemImageWrapper}>
-                               <Image style={styles.newAdsWrapperItemImage} source={item.image}/>
-                               {item.icon}
-                           </View>
+                            <View style={styles.newAdsWrapperItemImageWrapper}>
+                                <Image style={styles.newAdsWrapperItemImage} source={item.image} />
+                                {item.icon}
+                            </View>
 
-                           <Text style={styles.title}>{item.title}</Text>
-                           <Text style={styles.yearAndVilage}>{item.year} - {item.mileage} km</Text>
-                           <Text style={styles.price}>₪ {item.price}</Text>
+                            <Text style={styles.title}>{item.title}</Text>
+                            <View style={{ flexDirection: 'row', alignItems: 'center' }} >
+                                <Text style={styles.yearAndVilage}>{item.year}</Text>
+                                <View style={{ alignItems: 'center', marginLeft: 5, marginTop: 5 }} >
+                                    <GrayCircle />
+                                </View>
+                                <Text style={styles.yearAndVilage}> {item.mileage} km</Text>
+                            </View>
+                            <Text style={styles.price}>₪ {item.price}</Text>
 
-                       </TouchableOpacity>
+                        </TouchableOpacity>
 
-                   )
-               })}
+                    )
+                })}
 
-           </ScrollView>
-       </View>
+            </ScrollView>
+        </View>
     );
 }
 
@@ -84,12 +91,12 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 122,
         borderRadius: 8,
-        overflow:'hidden'
+        overflow: 'hidden'
     },
     newAdsWrapperItemImage: {
         width: '100%',
         height: '100%',
-        resizeMode:'cover'
+        resizeMode: 'cover'
     },
 
     title: {
@@ -106,7 +113,7 @@ const styles = StyleSheet.create({
     price: {
         color: '#091334',
         fontSize: 16,
-        fontWeight:'bold'
+        fontWeight: 'bold'
     },
 
     mainTitle: {

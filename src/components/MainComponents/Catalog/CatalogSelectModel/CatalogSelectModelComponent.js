@@ -19,15 +19,15 @@ import {
     useSafeAreaInsets,
     initialWindowMetrics,
 } from 'react-native-safe-area-context';
-import {useSelector, useDispatch, } from 'react-redux';
-import {} from '../../../../redux/actions/actions';
+import { useSelector, useDispatch, } from 'react-redux';
+import { } from '../../../../redux/actions/actions';
 
 // import SpecialOfferBlock from './includes/SpecialOffer';
 import NavigationBottomMenu from '../../../includes/NavigationBottomMenu';
 
 
-import Svg, {Defs, G, Path, Rect, Circle, ClipPath} from "react-native-svg";
-import {useEffect, useState} from "react";
+import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
+import { useEffect, useState } from "react";
 import FilterSvg from '../../../../../assets/Svg/search_component/FilterSvg';
 
 import PopularModelsBlock from "./includes/PopularModels";
@@ -39,11 +39,13 @@ import SpecialOfferBlock from "./includes/SpecialOffer";
 import BecomePartner from "../../includes/BecomePartner";
 import JournalBlock from "./includes/JournalBlock";
 import DillersBlock from "./includes/DillersBlock";
+import SliderBlock from './includes/SliderBlock'
+import AdBanner from './includes/AdBanner'
+import OpenSelectMarkSvg from '../../../../../assets/Svg/OpenSelectMarkSvg';
 
-export default function App(props)
-{
+export default function App(props) {
     // Redux
-    const {is_open_model_popup_in_catalog_select_model_page} = useSelector(state => state.justDriveReducer);
+    const { is_open_model_popup_in_catalog_select_model_page } = useSelector(state => state.justDriveReducer);
     const dispatch = useDispatch();
     // const handleAddToAddressDataRedux = (to_address_data) => dispatch(addToAddressDataRedux(to_address_data));
 
@@ -52,56 +54,56 @@ export default function App(props)
     const [active_top_tab3, setActiveTopTab3] = useState(false);
 
     const [new_ads, setNewAds] = useState([
-        {image: require('../../../../../assets/images/new-autos2.png'), title: 'Mercedes-Benz S c...', subtitle: 'March 2021'},
-        {image: require('../../../../../assets/images/new-autos2.png'), title: 'Mercedes-Benz S c...', subtitle: 'March 2021'},
-        {image: require('../../../../../assets/images/new-autos2.png'), title: 'Mercedes-Benz S c...', subtitle: 'March 2021'},
-        {image: require('../../../../../assets/images/new-autos2.png'), title: 'Mercedes-Benz S c...', subtitle: 'March 2021'},
+        { image: require('../../../../../assets/images/new-autos2.png'), title: 'Mercedes-Benz S c...', subtitle: 'March 2021' },
+        { image: require('../../../../../assets/images/new-autos2.png'), title: 'Mercedes-Benz S c...', subtitle: 'March 2021' },
+        { image: require('../../../../../assets/images/new-autos2.png'), title: 'Mercedes-Benz S c...', subtitle: 'March 2021' },
+        { image: require('../../../../../assets/images/new-autos2.png'), title: 'Mercedes-Benz S c...', subtitle: 'March 2021' },
     ]);
 
     const [auto_types, setAutoTypes] = useState([
-        {icon: <MiniSvg/>, title: 'Мини'},
-        {icon: <MiniSvg/>, title: 'Мини'},
-        {icon: <MiniSvg/>, title: 'Мини'},
-        {icon: <MiniSvg/>, title: 'Мини'},
-        {icon: <MiniSvg/>, title: 'Мини'},
-        {icon: <MiniSvg/>, title: 'Мини'},
-        {icon: <MiniSvg/>, title: 'Мини'},
+        { icon: <MiniSvg />, title: 'Мини' },
+        { icon: <MiniSvg />, title: 'Мини' },
+        { icon: <MiniSvg />, title: 'Мини' },
+        { icon: <MiniSvg />, title: 'Мини' },
+        { icon: <MiniSvg />, title: 'Мини' },
+        { icon: <MiniSvg />, title: 'Мини' },
+        { icon: <MiniSvg />, title: 'Мини' },
     ]);
 
     const [engines_type, setEnginesType] = useState([
-        {icon: '', title: 'Бензин'},
-        {icon: '', title: 'Дизель'},
-        {icon: '', title: 'Гибрид'},
-        {icon: '', title: 'Бензин'},
-        {icon: '', title: 'Дизель'},
-        {icon: '', title: 'Гибрид'},
+        { icon: '', title: 'Бензин' },
+        { icon: '', title: 'Дизель' },
+        { icon: '', title: 'Гибрид' },
+        { icon: '', title: 'Бензин' },
+        { icon: '', title: 'Дизель' },
+        { icon: '', title: 'Гибрид' },
     ]);
 
     const [themes, setThemes] = useState([
-        {title: 'США'  },
-        {title: 'Корея'  },
-        {title: 'Япония'  },
-        {title: 'Группа VAG'  },
-        {title: 'Немцы'  },
-        {title: 'Французы'  },
-        {title: 'Группа FCA'  },
-        {title: 'Группа PSA'  },
+        { title: 'США' },
+        { title: 'Корея' },
+        { title: 'Япония' },
+        { title: 'Группа VAG' },
+        { title: 'Немцы' },
+        { title: 'Французы' },
+        { title: 'Группа FCA' },
+        { title: 'Группа PSA' },
     ]);
 
 
     const [special_offers, setSpecialOffers] = useState([
-        {image: require('../../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000'},
-        {image: require('../../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000'},
-        {image: require('../../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000'},
-        {image: require('../../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000'},
-        {image: require('../../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000'},
-        {image: require('../../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000'},
+        { image: require('../../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000' },
+        { image: require('../../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000' },
+        { image: require('../../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000' },
+        { image: require('../../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000' },
+        { image: require('../../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000' },
+        { image: require('../../../../../assets/images/car_photo.png'), title: 'Mercedes-Benz S c...', year: '2014', mileage: '142 000', price: '829 000' },
     ]);
 
     const [journal_data, setJournalData] = useState([
-        {image: require('../../../../../assets/images/car_photo.png'), title: 'Kia Picanto. Practical, affordable and compact vehicle', description: 'Well-made, well-equipped, practical and affordable Korean compact car. History of generations and distinctive features of modern models.'},
-        {image: require('../../../../../assets/images/car_photo.png'), title: 'Kia Optima. Korean bestseller', description: 'Korean-inspired premium class. A popular car competing with the best European cars. Description, interesting technical characteristics. A brief history of generations and modern models.'},
-        {image: require('../../../../../assets/images/car_photo.png'), title: 'Kia Picanto. Practical, affordable and compact vehicle', description: 'Well-made, well-equipped, practical and affordable Korean compact car. History of generations and distinctive features of modern models.'},
+        { image: require('../../../../../assets/images/car_photo.png'), title: 'Kia Picanto. Practical, affordable and compact vehicle', description: 'Well-made, well-equipped, practical and affordable Korean compact car. History of generations and distinctive features of modern models.' },
+        { image: require('../../../../../assets/images/car_photo.png'), title: 'Kia Optima. Korean bestseller', description: 'Korean-inspired premium class. A popular car competing with the best European cars. Description, interesting technical characteristics. A brief history of generations and modern models.' },
+        { image: require('../../../../../assets/images/car_photo.png'), title: 'Kia Picanto. Practical, affordable and compact vehicle', description: 'Well-made, well-equipped, practical and affordable Korean compact car. History of generations and distinctive features of modern models.' },
     ]);
 
 
@@ -116,10 +118,9 @@ export default function App(props)
 
 
     // Попап выбора марки, открывается от Redux
-    if(is_open_model_popup_in_catalog_select_model_page)
-    {
+    if (is_open_model_popup_in_catalog_select_model_page) {
         return (
-            <ModelsPopup/>
+            <ModelsPopup />
         )
     }
 
@@ -128,7 +129,7 @@ export default function App(props)
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
 
-                <View style={[styles.headerItem, styles.flex1 ]}>
+                <View style={[styles.headerItem, styles.flex1]}>
                     <TouchableOpacity
                         onPress={() => {
                             props.navigation.navigate('CatalogSelectMarkComponent')
@@ -136,21 +137,25 @@ export default function App(props)
                         style={{}}
                     >
                         <Svg width={43} height={44} viewBox="0 0 43 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <Path d="M25 15l-6.93 6.93a.1.1 0 000 .14L25 29" stroke="#091334" strokeWidth={2} strokeLinecap="round"/>
+                            <Path d="M25 15l-6.93 6.93a.1.1 0 000 .14L25 29" stroke="#091334" strokeWidth={2} strokeLinecap="round" />
                         </Svg>
                     </TouchableOpacity>
                 </View>
 
-                <View style={[styles.headerItem, styles.flex2 ]}>
+                <View style={[styles.headerItem, styles.flex2]}>
                     <Text style={styles.appName}>
                         Каталог
                     </Text>
                 </View>
 
-                <View style={[styles.headerItem, styles.flex1, styles.headerItemRight ]}>
+                <View style={[styles.headerItem, styles.flex1, styles.headerItemRight]}>
+                    <TouchableOpacity>
+                        <OpenSelectMarkSvg />
+                    </TouchableOpacity>
 
-                    <TouchableOpacity  style={{marginRight:16}}>
-                        <FilterSvg/>
+                    <TouchableOpacity style={{ marginRight: 16 }}>
+
+                        <FilterSvg />
                     </TouchableOpacity>
 
 
@@ -159,36 +164,40 @@ export default function App(props)
             </View>
 
 
-            <ScrollView style={{width: '100%', flex:1}}>
+            <ScrollView style={{ width: '100%', flex: 1 }}>
 
-            <View style={{ width: '100%', paddingHorizontal: 16, marginBottom: 16, flexDirection:'row', alignItems:'center', justifyContent:'space-between' }}>
-                    <Text style={{ fontSize: 22, fontWeight: 'bold', lineHeight: 28, width:300 }}>Ауди</Text>
-                    <Image 
-                    style={{width:44, height:44}}
-                    source={require('../../../../../assets/images/audi.png')} /> 
+                <View style={{ width: '100%', paddingHorizontal: 16, marginBottom: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', lineHeight: 28, width: 300 }}>Ауди</Text>
+                    <Image
+                        style={{ width: 44, height: 44 }}
+                        source={require('../../../../../assets/images/audi.png')} />
                 </View>
 
-                <PopularModelsBlock navigation={props.navigation}/>
+                <PopularModelsBlock navigation={props.navigation} />
 
 
-                <View style={{padding: 16}}>
-                    <Text style={{borderBottomWidth:1, borderColor: '#f1f1f1', width: '100%', paddingBottom: 16, lineHeight:24, color:'#091334'}}>
+                <View style={{ padding: 16 }}>
+                    <Text style={{ borderBottomWidth: 1, borderColor: '#f1f1f1', width: '100%', paddingBottom: 16, lineHeight: 24, color: '#091334' }}>
                         Ауди - это не просто стиль, роскошь, вкус, комфорт, безопасность, качество и надёжность. Это - самая настоящая легенда! Бренд «Mercedes-Benz» оценивается в 60,355 млрд долларов, что вывело его на первое место рейтинга самых дорогих автомобильных брендов в 2019 году.
                     </Text>
                 </View>
 
-                <SelectedMarkModel/>
-                <PayYourCarBlock/>
-                <SpecialOfferBlock data={special_offers}/>
-                <BecomePartner/>
-
-                <DillersBlock/>
-                <JournalBlock data={journal_data}/>
+                <SelectedMarkModel />
+                <PayYourCarBlock />
+                <SpecialOfferBlock data={special_offers} />
+                <BecomePartner />
+                <SliderBlock />
+                <DillersBlock />
+                <JournalBlock data={journal_data} />
+                <AdBanner
+                    textFirst={'Купить Ауди в Израиле'}
+                    textSecond={'Салоны дилеров '}
+                    numberFirst={'32'}
+                    numberSecond={'432'}
+                    textThird={'Ремонт и обслуживание '}
+                />
             </ScrollView>
-
-            <NavigationBottomMenu navigation={props.navigation} active_page={''}/>
-
-
+            <NavigationBottomMenu navigation={props.navigation} active_page={''} />
         </SafeAreaView>
     );
 }
@@ -215,40 +224,40 @@ const styles = StyleSheet.create({
     header: {
         width: '100%',
         height: 56,
-        flexDirection:'row',
+        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        borderBottomWidth:1,
+        borderBottomWidth: 1,
         borderColor: '#f1f1f1',
-        marginBottom:20
+        marginBottom: 20
     },
     changeLanguageButton: {
 
     },
     appName: {
-        fontSize:18,
-        fontWeight:'bold'
+        fontSize: 18,
+        fontWeight: 'bold'
     },
     profileButton: {
 
     },
 
     flex1: {
-      flex:1
+        flex: 1
     },
     flex2: {
-        flex:2,
-        justifyContent:'center',
-        alignItems:'center'
+        flex: 2,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     headerItem: {
         height: '100%',
-        justifyContent:'center',
+        justifyContent: 'center',
     },
     headerItemRight: {
         flexDirection: 'row',
-        alignItems:'center',
-        justifyContent:'flex-end',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
     },
 
     menuTopButtonWrapper: {
@@ -256,17 +265,17 @@ const styles = StyleSheet.create({
         height: 36,
         // backgroundColor:'silver',
         // marginBottom: 24,
-        flexDirection:'row'
+        flexDirection: 'row'
     },
 
     menuTopButton: {
         flex: 1,
         marginRight: 24,
         height: 36,
-        borderBottomWidth:1,
+        borderBottomWidth: 1,
         borderBottomColor: 'white',
-        justifyContent:'flex-start',
-        alignItems:'center'
+        justifyContent: 'flex-start',
+        alignItems: 'center'
     },
     menuTopButtonText: {
         color: '#6C7693',
@@ -282,8 +291,8 @@ const styles = StyleSheet.create({
     menuTopButtonActiveLine: {
         width: '100%',
         height: 3,
-        backgroundColor:'#2B65EE',
-        position:'absolute',
+        backgroundColor: '#2B65EE',
+        position: 'absolute',
         bottom: 0,
         borderTopLeftRadius: 2,
         borderTopRightRadius: 2,
@@ -294,63 +303,63 @@ const styles = StyleSheet.create({
         marginBottom: 16
     },
     tabsMainWrapper: {
-        width:'100%',
-        padding:4,
-        height:40,
-        justifyContent:'center',
+        width: '100%',
+        padding: 4,
+        height: 40,
+        justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor:'#F0F1F4',
+        backgroundColor: '#F0F1F4',
         borderRadius: 8,
 
     },
     tabsWrapper: {
         width: '100%',
         height: '100%',
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'center',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
         borderRadius: 8,
-        backgroundColor:'#F0F1F4',
+        backgroundColor: '#F0F1F4',
     },
     tabsItem: {
         // height:'100%',
         height: '100%',
-        alignItems:'center',
-        justifyContent:'center',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     tabsItemText: {
-        textAlign:'center',
-        color:'#6C7693'
+        textAlign: 'center',
+        color: '#6C7693'
         // width: '100%',
         // height:'100%',
         // backgroundColor:'blue',
     },
     tabsItemActive: {
-        borderRadius:4,
-        backgroundColor:'white'
+        borderRadius: 4,
+        backgroundColor: 'white'
     },
     tabsItemTextActive: {
         color: '#091334'
     },
     markAndFilterWrapper: {
         width: '100%',
-        paddingHorizontal: 16 ,
-        flexDirection:'row',
-        justifyContent:'space-between',
+        paddingHorizontal: 16,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         marginBottom: 16
     },
     markFilterButton: {
         width: '49%',
         height: 44,
-        borderRadius:8,
+        borderRadius: 8,
         borderWidth: 1,
-        borderColor:'#C4C8D4',
-        flexDirection:'row',
-        justifyContent:'center',
-        alignItems:'center'
+        borderColor: '#C4C8D4',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     markFilterButtonText: {
-        fontSize:16,
+        fontSize: 16,
         color: '#091334',
         marginLeft: 12
     },
@@ -359,17 +368,17 @@ const styles = StyleSheet.create({
     markList: {
         width: '100%',
         paddingHorizontal: 16,
-        flexDirection:'row',
+        flexDirection: 'row',
         marginBottom: 20
     },
     markListContainer: {
-        flex:1
+        flex: 1
     },
     markListItemWrapper: {
         width: '100%',
         height: 24,
-        flexDirection:'row',
-        alignItems:'center',
+        flexDirection: 'row',
+        alignItems: 'center',
         marginBottom: 10
     },
     markListItemPress: {
@@ -387,7 +396,7 @@ const styles = StyleSheet.create({
     autoTypesWrapper: {
         width: '100%',
         paddingLeft: 16,
-        marginBottom:24
+        marginBottom: 24
     },
     autoTypesScrollView: {
         width: '100%',
@@ -395,10 +404,10 @@ const styles = StyleSheet.create({
     autoTypesItem: {
         width: 144,
         height: 100,
-        justifyContent:'center',
-        alignItems:'center',
+        justifyContent: 'center',
+        alignItems: 'center',
         marginRight: 8,
-        backgroundColor:'#F0F1F4',
+        backgroundColor: '#F0F1F4',
         borderRadius: 8
     },
     autoTypesTitle: {

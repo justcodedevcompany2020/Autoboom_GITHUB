@@ -17,7 +17,7 @@ export default function App(props) {
             <View style={styles.containerHeader} >
                 <Text style={styles.boldText} >{props.title}</Text>
                 <TouchableOpacity
-                onPress={() => {props.navigation.navigate('JournalThemes')}}
+                    onPress={() => { props.navigation.navigate('JournalThemes') }}
                 >
                     <Text style={styles.blueText} >Все</Text>
                 </TouchableOpacity>
@@ -26,8 +26,8 @@ export default function App(props) {
                 return (
                     <TouchableOpacity
                         onPress={() => props.navigation.navigate('JournalSinglePage')}
-                        key={index} 
-                        style={styles.Item}>
+                        key={index}
+                        style={[styles.Item, index == 2 && { borderBottomColor: 'white' }]}>
                         <Image
                             style={{ width: 120, height: 82, borderRadius: 8 }}
                             source={item.image} />

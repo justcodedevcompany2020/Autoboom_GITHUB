@@ -22,9 +22,9 @@ import {
 
 // import AutoserviceSvg from '../../../../assets/Svg/companies/autoservice'
 // import AutosalonSvg from '../../../../assets/Svg/companies/autosalonSvg'
-import Svg, {Defs, G, Path, Rect, Circle, ClipPath} from "react-native-svg";
+import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
 
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 export default function App(props) {
 
@@ -38,340 +38,347 @@ export default function App(props) {
     }, []);
 
     return (
-       <View style={styles.wrapper}>
+        <View style={styles.wrapper}>
 
             <View style={styles.mainWrapper}>
                 <Text style={styles.mainTitle}>Комплектация LX</Text>
             </View>
 
 
-           <View style={styles.packageMainItemWrapper}>
-               <TouchableOpacity style={styles.toggleButton} onPress={() => {setOpen1tab(!open1tab)}}>
-                   <Text style={styles.toggleButtonText}>Безопасность и помощь</Text>
+            <View style={styles.packageMainItemWrapper}>
+                <TouchableOpacity style={styles.toggleButton} onPress={() => { setOpen1tab(!open1tab) }}>
+                    <Text style={styles.toggleButtonText}>Безопасность и помощь</Text>
 
-                   <Svg width={18} height={10} viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                       <Path d="M2 8.5l7-7 7 7" stroke="#6C7694" strokeWidth={2} strokeLinecap="round"/>
-                   </Svg>
-               </TouchableOpacity>
+                    <View style={open1tab ? { transform: [{ rotate: '360 deg' }] } : { transform: [{ rotate: '180 deg' }] }} >
+                        <Svg width={18} height={10} viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <Path d="M2 8.5l7-7 7 7" stroke="#6C7694" strokeWidth={2} strokeLinecap="round" />
+                        </Svg>
+                    </View>
 
-               {open1tab &&
-                   <View>
-                       <View style={styles.packageItemWrapper}>
+                </TouchableOpacity>
 
-                           <Text style={styles.packageItemTitle}>Подушки безопасности</Text>
+                {open1tab &&
+                    <View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Подушки безопасности</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Подушка безопасности водителя</Text>
-                               </View>
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Подушка для переднего пассажира</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                           </View>
-                       </View>
-                       <View style={styles.packageItemWrapper}>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Подушка безопасности водителя</Text>
+                                </View>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Подушка для переднего пассажира</Text>
+                                </View>
 
-                           <Text style={styles.packageItemTitle}>Безопасность</Text>
+                            </View>
+                        </View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Безопасность</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Датчик давления в шинах</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                           </View>
-                       </View>
-                       <View style={styles.packageItemWrapper}>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Датчик давления в шинах</Text>
+                                </View>
 
-                           <Text style={styles.packageItemTitle}>Защита доступа</Text>
+                            </View>
+                        </View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Защита доступа</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Иммобилайзер</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                           </View>
-                       </View>
-                       <View style={styles.packageItemWrapper}>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Иммобилайзер</Text>
+                                </View>
 
-                           <Text style={styles.packageItemTitle}>Система Isofix</Text>
+                            </View>
+                        </View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Система Isofix</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Isofix для заднего ряда</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                           </View>
-                       </View>
-                       <View style={styles.packageItemWrapper}>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Isofix для заднего ряда</Text>
+                                </View>
 
-                           <Text style={styles.packageItemTitle}>Помощь в вождении</Text>
+                            </View>
+                        </View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Помощь в вождении</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Антиблокировочная система (ABS)</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Система стабилизации (ESP)</Text>
-                               </View>
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Система помощи при торможении (BAS, EBD, EBA)</Text>
-                               </View>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Антиблокировочная система (ABS)</Text>
+                                </View>
 
-                           </View>
-                       </View>
-                       <View style={styles.packageItemWrapper}>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Система стабилизации (ESP)</Text>
+                                </View>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Система помощи при торможении (BAS, EBD, EBA)</Text>
+                                </View>
 
-                           <Text style={styles.packageItemTitle}>Система Isofix</Text>
+                            </View>
+                        </View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Система Isofix</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Isofix для заднего ряда</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                           </View>
-                       </View>
-                   </View>
-               }
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Isofix для заднего ряда</Text>
+                                </View>
 
-           </View>
+                            </View>
+                        </View>
+                    </View>
+                }
 
-           <View style={styles.packageMainItemWrapper}>
-               <TouchableOpacity style={styles.toggleButton} onPress={() => {setOpen2tab(!open2tab)}}>
-                   <Text style={styles.toggleButtonText}>Мультимедиа</Text>
+            </View>
 
-                   <Svg width={18} height={10} viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                       <Path d="M2 8.5l7-7 7 7" stroke="#6C7694" strokeWidth={2} strokeLinecap="round"/>
-                   </Svg>
-               </TouchableOpacity>
+            <View style={styles.packageMainItemWrapper}>
+                <TouchableOpacity style={styles.toggleButton} onPress={() => { setOpen2tab(!open2tab) }}>
+                    <Text style={styles.toggleButtonText}>Мультимедиа</Text>
 
-               {open2tab &&
-                   <View>
-                       <View style={styles.packageItemWrapper}>
+                    <View style={open2tab ? { transform: [{ rotate: '360 deg' }] } : { transform: [{ rotate: '180 deg' }] }} >
+                        <Svg width={18} height={10} viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <Path d="M2 8.5l7-7 7 7" stroke="#6C7694" strokeWidth={2} strokeLinecap="round" />
+                        </Svg>
+                    </View>
+                </TouchableOpacity>
 
-                           <Text style={styles.packageItemTitle}>Подушки безопасности</Text>
+                {open2tab &&
+                    <View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Подушки безопасности</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Подушка безопасности водителя</Text>
-                               </View>
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Подушка для переднего пассажира</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                           </View>
-                       </View>
-                       <View style={styles.packageItemWrapper}>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Подушка безопасности водителя</Text>
+                                </View>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Подушка для переднего пассажира</Text>
+                                </View>
 
-                           <Text style={styles.packageItemTitle}>Безопасность</Text>
+                            </View>
+                        </View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Безопасность</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Датчик давления в шинах</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                           </View>
-                       </View>
-                       <View style={styles.packageItemWrapper}>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Датчик давления в шинах</Text>
+                                </View>
 
-                           <Text style={styles.packageItemTitle}>Защита доступа</Text>
+                            </View>
+                        </View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Защита доступа</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Иммобилайзер</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                           </View>
-                       </View>
-                       <View style={styles.packageItemWrapper}>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Иммобилайзер</Text>
+                                </View>
 
-                           <Text style={styles.packageItemTitle}>Система Isofix</Text>
+                            </View>
+                        </View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Система Isofix</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Isofix для заднего ряда</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                           </View>
-                       </View>
-                       <View style={styles.packageItemWrapper}>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Isofix для заднего ряда</Text>
+                                </View>
 
-                           <Text style={styles.packageItemTitle}>Помощь в вождении</Text>
+                            </View>
+                        </View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Помощь в вождении</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Антиблокировочная система (ABS)</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Система стабилизации (ESP)</Text>
-                               </View>
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Система помощи при торможении (BAS, EBD, EBA)</Text>
-                               </View>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Антиблокировочная система (ABS)</Text>
+                                </View>
 
-                           </View>
-                       </View>
-                       <View style={styles.packageItemWrapper}>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Система стабилизации (ESP)</Text>
+                                </View>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Система помощи при торможении (BAS, EBD, EBA)</Text>
+                                </View>
 
-                           <Text style={styles.packageItemTitle}>Система Isofix</Text>
+                            </View>
+                        </View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Система Isofix</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Isofix для заднего ряда</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                           </View>
-                       </View>
-                   </View>
-               }
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Isofix для заднего ряда</Text>
+                                </View>
 
+                            </View>
+                        </View>
+                    </View>
+                }
 
-           </View>
 
-           <View style={styles.packageMainItemWrapper}>
-               <TouchableOpacity style={styles.toggleButton} onPress={() => {setOpen3tab(!open3tab)}}>
-                   <Text style={styles.toggleButtonText}>Прочее</Text>
-                   <Svg width={18} height={10} viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                       <Path d="M2 8.5l7-7 7 7" stroke="#6C7694" strokeWidth={2} strokeLinecap="round"/>
-                   </Svg>
-               </TouchableOpacity>
+            </View>
 
-               {open3tab &&
-                   <View>
-                       <View style={styles.packageItemWrapper}>
+            <View style={styles.packageMainItemWrapper}>
+                <TouchableOpacity style={styles.toggleButton} onPress={() => { setOpen3tab(!open3tab) }}>
+                    <Text style={styles.toggleButtonText}>Прочее</Text>
+                    <View style={open3tab ? { transform: [{ rotate: '360 deg' }] } : { transform: [{ rotate: '180 deg' }] }} >
+                        <Svg width={18} height={10} viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <Path d="M2 8.5l7-7 7 7" stroke="#6C7694" strokeWidth={2} strokeLinecap="round" />
+                        </Svg>
+                    </View>
+                </TouchableOpacity>
 
-                           <Text style={styles.packageItemTitle}>Подушки безопасности</Text>
+                {open3tab &&
+                    <View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Подушки безопасности</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Подушка безопасности водителя</Text>
-                               </View>
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Подушка для переднего пассажира</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                           </View>
-                       </View>
-                       <View style={styles.packageItemWrapper}>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Подушка безопасности водителя</Text>
+                                </View>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Подушка для переднего пассажира</Text>
+                                </View>
 
-                           <Text style={styles.packageItemTitle}>Безопасность</Text>
+                            </View>
+                        </View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Безопасность</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Датчик давления в шинах</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                           </View>
-                       </View>
-                       <View style={styles.packageItemWrapper}>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Датчик давления в шинах</Text>
+                                </View>
 
-                           <Text style={styles.packageItemTitle}>Защита доступа</Text>
+                            </View>
+                        </View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Защита доступа</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Иммобилайзер</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                           </View>
-                       </View>
-                       <View style={styles.packageItemWrapper}>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Иммобилайзер</Text>
+                                </View>
 
-                           <Text style={styles.packageItemTitle}>Система Isofix</Text>
+                            </View>
+                        </View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Система Isofix</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Isofix для заднего ряда</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                           </View>
-                       </View>
-                       <View style={styles.packageItemWrapper}>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Isofix для заднего ряда</Text>
+                                </View>
 
-                           <Text style={styles.packageItemTitle}>Помощь в вождении</Text>
+                            </View>
+                        </View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Помощь в вождении</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Антиблокировочная система (ABS)</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Система стабилизации (ESP)</Text>
-                               </View>
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Система помощи при торможении (BAS, EBD, EBA)</Text>
-                               </View>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Антиблокировочная система (ABS)</Text>
+                                </View>
 
-                           </View>
-                       </View>
-                       <View style={styles.packageItemWrapper}>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Система стабилизации (ESP)</Text>
+                                </View>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Система помощи при торможении (BAS, EBD, EBA)</Text>
+                                </View>
 
-                           <Text style={styles.packageItemTitle}>Система Isofix</Text>
+                            </View>
+                        </View>
+                        <View style={styles.packageItemWrapper}>
 
-                           <View style={styles.packageItemUlList}>
+                            <Text style={styles.packageItemTitle}>Система Isofix</Text>
 
-                               <View style={styles.packageItemUlItem}>
-                                   <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
-                                   <Text style={styles.packageItemUlItemText}>Isofix для заднего ряда</Text>
-                               </View>
+                            <View style={styles.packageItemUlList}>
 
-                           </View>
-                       </View>
+                                <View style={styles.packageItemUlItem}>
+                                    <Svg width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><Rect width={4} height={4} rx={2} fill="#C4C8D4" /></Svg>
+                                    <Text style={styles.packageItemUlItemText}>Isofix для заднего ряда</Text>
+                                </View>
 
-                   </View>
-               }
+                            </View>
+                        </View>
 
-           </View>
+                    </View>
+                }
 
-           <TouchableOpacity>
-               <Text style={{fontSize:16, color: '#2B65EE'}}>Комплектация LX</Text>
-           </TouchableOpacity>
+            </View>
 
-       </View>
+            <TouchableOpacity>
+                <Text style={{ fontSize: 16, color: '#2B65EE' }}>Комплектация LX</Text>
+            </TouchableOpacity>
+
+        </View>
     );
 }
 
@@ -390,10 +397,10 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     Item: {
-        justifyContent:'center',
-        alignItems:'center',
+        justifyContent: 'center',
+        alignItems: 'center',
         marginRight: 8,
-        backgroundColor:'#E5F2FF',
+        backgroundColor: '#E5F2FF',
         borderRadius: 100,
         paddingHorizontal: 16,
         paddingVertical: 12,
@@ -403,18 +410,18 @@ const styles = StyleSheet.create({
         width: '100%',
         color: '#2B65EE',
         fontSize: 16,
-        textAlign:'center'
+        textAlign: 'center'
     },
 
-    mainWrapper:{
+    mainWrapper: {
         justifyContent: 'space-between',
         alignItems: 'flex-start',
         paddingRight: 16
     },
-    showAll:{
+    showAll: {
 
     },
-    showAllText:{
+    showAllText: {
         fontSize: 16,
         color: '#2B65EE'
     },
@@ -428,12 +435,12 @@ const styles = StyleSheet.create({
 
     actionButton: {
         width: '100%',
-        height:  48,
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'center',
+        height: 48,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
         borderWidth: 1,
-        borderColor:'#C4C8D4',
+        borderColor: '#C4C8D4',
         borderRadius: 6,
         marginTop: 8
     },
@@ -443,10 +450,10 @@ const styles = StyleSheet.create({
     },
 
     white: {
-        width:'100%',
+        width: '100%',
         height: 30,
         backgroundColor: 'rgba(255,255,255,0.74)',
-        position:'absolute',
+        position: 'absolute',
         bottom: 0,
         left: 0,
     },
@@ -454,8 +461,8 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 24,
         flexDirection: 'row',
-        justifyContent:'space-between',
-        alignItems:'center',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         marginBottom: 12
     },
     toggleButtonText: {
@@ -464,13 +471,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     packageMainItemWrapper: {
-        width:'100%'
+        width: '100%'
     },
 
     packageItemWrapper: {
         width: '100%',
         borderBottomWidth: 1,
-        borderBottomColor:'#F0F1F4',
+        borderBottomColor: '#F0F1F4',
         marginBottom: 12
     },
     packageItemTitle: {
@@ -483,13 +490,13 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     packageItemUlItem: {
-        width:'100%',
-        flexDirection:'row',
-        alignItems:'center',
-        marginBottom:12
+        width: '100%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 12
     },
     packageItemUlItemText: {
-        marginLeft:12,
-        fontSize:18
+        marginLeft: 12,
+        fontSize: 18
     },
 })

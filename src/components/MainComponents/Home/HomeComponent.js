@@ -201,35 +201,56 @@ export default function App(props) {
 
             <ScrollView style={{ width: '100%' }}>
                 <MainNavigation navigation={props.navigation} />
-                <View style={styles.fiktivInputWrapper}>
+                <View style={{ paddingHorizontal: 16 }} >
+                    <View style={styles.borderFilterWrapper}>
+                        <View style={styles.autoMarksWrapper}>
+                            <ScrollView horizontal={true} style={styles.autoMarksScrollView}>
 
-                    <TouchableOpacity onPress={() => { setShowPriceFilter(true) }} style={styles.fiktivInput}>
-                        <Text style={styles.fiktivInputText}>Цена</Text>
-                    </TouchableOpacity>
+                                {marks.map((item, index) => {
+                                    return (
+                                        <TouchableOpacity key={index} style={styles.autoMarksItem}>
+                                            {item.icon}
+                                        </TouchableOpacity>
+                                    )
+                                })}
 
-                    <TouchableOpacity onPress={() => { setShowHandFilter(true) }} style={styles.fiktivInput}>
-                        <Text style={styles.fiktivInputText}>Рука</Text>
-                    </TouchableOpacity>
+                            </ScrollView>
+
+                        </View>
+                        <View style={styles.fiktivInputWrapper}>
+
+                            <TouchableOpacity onPress={() => { setShowPriceFilter(true) }} style={styles.fiktivInput}>
+                                <Text style={styles.fiktivInputText}>Цена</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity onPress={() => { setShowHandFilter(true) }} style={styles.fiktivInput}>
+                                <Text style={styles.fiktivInputText}>Рука</Text>
+                            </TouchableOpacity>
 
 
-                    <TouchableOpacity onPress={() => { setShowMileageFilter(true) }} style={styles.fiktivInput}>
-                        <Text style={styles.fiktivInputText}>Пробег</Text>
-                    </TouchableOpacity>
+                            <TouchableOpacity onPress={() => { setShowMileageFilter(true) }} style={styles.fiktivInput}>
+                                <Text style={styles.fiktivInputText}>Пробег</Text>
+                            </TouchableOpacity>
+
+                        </View>
+                        <View style={styles.searchBlueButtonWrapper}>
+
+                            <TouchableOpacity
+                                onPress={() => {
+                                    props.navigation.navigate('SearchComponent')
+                                }}
+                                style={styles.searchBlueButton}
+                            >
+                                <Text style={styles.searchBlueButtonText}>Показать 1325 объявлений</Text>
+                            </TouchableOpacity>
+
+                        </View>
+                    </View>
 
                 </View>
 
-                <View style={styles.searchBlueButtonWrapper}>
 
-                    <TouchableOpacity
-                        onPress={() => {
-                            props.navigation.navigate('SearchComponent')
-                        }}
-                        style={styles.searchBlueButton}
-                    >
-                        <Text style={styles.searchBlueButtonText}>Показать 1325 объявлений</Text>
-                    </TouchableOpacity>
 
-                </View>
                 <View style={styles.autoTypesWrapper}>
 
                     <ScrollView horizontal={true} style={styles.autoTypesScrollView}>
@@ -432,7 +453,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         marginBottom: 24,
         borderColor: 'silver',
-        borderWidth: 1
+        borderWidth: 1,
     },
     autoMarksWrapper: {
         width: '100%',
@@ -473,7 +494,7 @@ const styles = StyleSheet.create({
     searchBlueButtonWrapper: {
         width: '100%',
         paddingHorizontal: 16,
-        marginBottom: 20
+        // marginBottom: 20
     },
     searchBlueButton: {
         width: '100%',

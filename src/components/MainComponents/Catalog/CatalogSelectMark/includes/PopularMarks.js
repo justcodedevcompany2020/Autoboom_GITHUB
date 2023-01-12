@@ -11,8 +11,8 @@ import {
     Slider
 } from 'react-native';
 
-import {useSelector, useDispatch, } from 'react-redux';
-import {openMarkiPopUpInCatalogSelectMarkPage} from '../../../../../redux/actions/actions';
+import { useSelector, useDispatch, } from 'react-redux';
+import { openMarkiPopUpInCatalogSelectMarkPage } from '../../../../../redux/actions/actions';
 
 import {
     SafeAreaView,
@@ -26,15 +26,14 @@ import {
 // import NavigationBottomMenu from '../../../includes/NavigationBottomMenu';
 
 
-import Svg, {Defs, G, Path, Rect, Circle, ClipPath} from "react-native-svg";
-import {useEffect, useState} from "react";
+import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
+import { useEffect, useState } from "react";
 
 
 
-export default function App(props)
-{
+export default function App(props) {
     // Redux
-    const {is_open_marki_popup_in_catalog_select_mark_page} = useSelector(state => state.justDriveReducer);
+    const { is_open_marki_popup_in_catalog_select_mark_page } = useSelector(state => state.justDriveReducer);
     const dispatch = useDispatch();
     const handleOpenMarkiPopUpInCatalogSelectMarkPage = () => dispatch(openMarkiPopUpInCatalogSelectMarkPage());
 
@@ -44,26 +43,26 @@ export default function App(props)
     const [active_top_tab3, setActiveTopTab3] = useState(false);
 
     const [popular_marks_items, setPopularMarksList] = useState([
-        { title: 'Ауди',},
-        { title: 'Митсубиши',},
-        { title: 'Ниссан',},
-        { title: 'Фольксваген',},
-        { title: 'Дачия',},
-        { title: 'Мерседес',},
-        { title: 'Фольксваген',},
-        { title: 'Ниссан',},
-        { title: 'Джип',},
-        { title: 'Ситроен',},
-        { title: 'Ауди',},
-        { title: 'Митсубиши',},
-        { title: 'Ниссан',},
-        { title: 'Фольксваген',},
-        { title: 'Дачия',},
-        { title: 'Мерседес',},
-        { title: 'Фольксваген',},
-        { title: 'Ниссан',},
-        { title: 'Джип',},
-        { title: 'Ситроен',},
+        { title: 'Ауди', },
+        { title: 'Митсубиши', },
+        { title: 'Фольксваген', },
+        { title: 'Вольво', },
+        { title: 'Дачия', },
+        { title: 'Мерседес', },
+        { title: 'Дачия', },
+        { title: 'Ситроен', },
+        { title: 'Джип', },
+        { title: 'Ситроен', },
+        { title: 'Ауди', },
+        { title: 'Митсубиши', },
+        { title: 'Джип', },
+        { title: 'Кадиллак', },
+        { title: 'Дачия', },
+        { title: 'Фольксваген', },
+        { title: 'Ниссан', },
+        { title: 'Митсубиши', },
+        { title: 'Фольксваген', },
+        { title: 'Митсубиши', },
     ]);
 
     const [show_sort_popoup, setSortPopup] = useState(false)
@@ -100,7 +99,7 @@ export default function App(props)
                 })}
             </View>
 
-            <TouchableOpacity style={styles.openButton} onPress={() => {handleOpenMarkiPopUpInCatalogSelectMarkPage()}}>
+            <TouchableOpacity style={styles.openButton} onPress={() => { handleOpenMarkiPopUpInCatalogSelectMarkPage() }}>
                 <Text style={styles.openButtonText}>Показать все марки</Text>
             </TouchableOpacity>
 
@@ -112,41 +111,47 @@ const styles = StyleSheet.create({
 
     popularWrapper: {
         width: '100%',
-        minHeight:15,
+        minHeight: 15,
         paddingHorizontal: 16,
     },
     title: {
         color: '#091334',
         fontSize: 22,
-        fontWeight:'bold',
+        fontWeight: 'bold',
         marginBottom: 16
     },
     popularList: {
         width: '100%',
-        flexWrap:'wrap',
-        flexDirection:'row'
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        justifyContent:'space-between'
     },
     popularListItem: {
-        width: '33%',
-        marginBottom:16
+        width: 100,
+        marginBottom: 16,
+        marginLeft:5
+        // alignItems:'center',
+        // justifyContent:'center'
     },
     popularListItemText: {
         color: '#2B65EE',
-        fontSize: 16
+        fontSize: 16,
+        textAlign: 'left',
+        // paddingLeft:20
     },
     openButton: {
-        width:'100%',
+        width: '100%',
         height: 44,
-        borderColor:'#C4C8D4',
+        borderColor: '#C4C8D4',
         borderWidth: 1,
         borderRadius: 6,
-        justifyContent:'center',
-        alignItems:'center',
-        marginTop:8
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 8
     },
     openButtonText: {
         color: '#091334',
-        fontSize:16
+        fontSize: 16
     },
 
 

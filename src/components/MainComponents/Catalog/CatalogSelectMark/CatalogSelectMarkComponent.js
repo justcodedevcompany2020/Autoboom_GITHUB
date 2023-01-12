@@ -28,17 +28,8 @@ import NavigationBottomMenu from '../../../includes/NavigationBottomMenu';
 
 import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
 import { useEffect, useState } from "react";
-//
-// import SearchSvg from '../../../../assets/Svg/search_component/SearchSvg';
-// import SortBySvg from '../../../../assets/Svg/search_component/SortBySvg';
-//
-// import MarkSvg from '../../../../assets/Svg/search_component/MarkSvg';
+
 import FilterSvg from '../../../../../assets/Svg/search_component/FilterSvg';
-//
-// import AutoCard from './includes/AutoCard';
-// import BecomePartnerBlock from '../includes/BecomePartner';
-// import SortByPopUp from './includes/SortByPopUp';
-// import PriceFilter from "../Home/includes/Filters/PriceFilter";
 
 import PopularMarksBlock from "./includes/PopularMarks";
 import MarksPopup from "./includes/Popups/MarksPopup";

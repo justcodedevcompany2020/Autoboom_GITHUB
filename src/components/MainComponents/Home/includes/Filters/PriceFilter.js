@@ -22,8 +22,8 @@ import {
 } from 'react-native-safe-area-context';
 // import DropShadow from "react-native-drop-shadow";
 
-import Svg, {Defs, G, Path, Rect, Circle, ClipPath} from "react-native-svg";
-import {useEffect, useState} from "react";
+import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
+import { useEffect, useState } from "react";
 import CloseSvg from '../../../../../../assets/Svg/CloseSvg';
 import SelectedSvg from '../../../../../../assets/Svg/SelectedSvg';
 
@@ -57,11 +57,10 @@ export default function App(props) {
 
     }, []);
 
-    if (show_price_filter)
-    {
+    if (show_price_filter) {
         return (
             <View style={styles.mainWrapper}>
-                <TouchableOpacity onPress={() => {setShowPriceFilter(false); props.onChange(); }} style={styles.closeSpaceButton}>
+                <TouchableOpacity onPress={() => { setShowPriceFilter(false); props.onChange(); }} style={styles.closeSpaceButton}>
 
                 </TouchableOpacity>
 
@@ -69,8 +68,8 @@ export default function App(props) {
 
                     <View style={styles.header}>
                         <Text style={styles.mainTitle}>Цена</Text>
-                        <TouchableOpacity onPress={() => {props.onChange();setShowPriceFilter(false)}}>
-                            <CloseSvg/>
+                        <TouchableOpacity onPress={() => { props.onChange(); setShowPriceFilter(false) }}>
+                            <CloseSvg />
                         </TouchableOpacity>
                     </View>
                     <View style={styles.inputWrapper}>
@@ -91,44 +90,44 @@ export default function App(props) {
                         />
                     </View>
 
-                    <ScrollView style={{width: '100%', flex:1}}>
+                    <ScrollView style={{ width: '100%', flex: 1 }}>
 
 
                         <View style={styles.centerContentWrapper}>
 
 
 
-                            <TouchableOpacity onPress={() => {onChangeActivePrice(0)}}  style={styles.item}>
+                            <TouchableOpacity onPress={() => { onChangeActivePrice(0) }} style={styles.item}>
                                 <Text style={styles.itemText}>Менее 50 000 ₪</Text>
 
-                                {activePrice == 0 &&  <SelectedSvg/>}
+                                {activePrice == 0 && <SelectedSvg />}
                             </TouchableOpacity>
 
-                            <TouchableOpacity onPress={() => {onChangeActivePrice(1)}}  style={styles.item}>
+                            <TouchableOpacity onPress={() => { onChangeActivePrice(1) }} style={styles.item}>
                                 <Text style={styles.itemText}>Более 50 000 ₪</Text>
 
-                                {activePrice == 1 &&  <SelectedSvg/>}
+                                {activePrice == 1 && <SelectedSvg />}
                             </TouchableOpacity>
 
-                            <TouchableOpacity onPress={() => {onChangeActivePrice(2)}}  style={styles.item}>
+                            <TouchableOpacity onPress={() => { onChangeActivePrice(2) }} style={styles.item}>
                                 <Text style={styles.itemText}>Менее 100 000 ₪</Text>
 
-                                {activePrice == 2 &&  <SelectedSvg/>}
+                                {activePrice == 2 && <SelectedSvg />}
                             </TouchableOpacity>
-                            <TouchableOpacity  onPress={() => {onChangeActivePrice(3)}} style={styles.item}>
+                            <TouchableOpacity onPress={() => { onChangeActivePrice(3) }} style={styles.item}>
                                 <Text style={styles.itemText}>Более 100 000 ₪</Text>
 
-                                {activePrice == 3 &&  <SelectedSvg/>}
+                                {activePrice == 3 && <SelectedSvg />}
                             </TouchableOpacity>
-                            <TouchableOpacity  onPress={() => {onChangeActivePrice(4)}} style={styles.item}>
+                            <TouchableOpacity onPress={() => { onChangeActivePrice(4) }} style={styles.item}>
                                 <Text style={styles.itemText}>Менее 150 000 ₪</Text>
 
-                                {activePrice == 4 &&  <SelectedSvg/>}
+                                {activePrice == 4 && <SelectedSvg />}
                             </TouchableOpacity>
-                            <TouchableOpacity  onPress={() => {onChangeActivePrice(5)}} style={[styles.item, {marginBottom: 22}]}>
+                            <TouchableOpacity onPress={() => { onChangeActivePrice(5) }} style={[styles.item, { marginBottom: 22 }]}>
                                 <Text style={styles.itemText}>Более 150 000 ₪</Text>
 
-                                {activePrice == 5 &&  <SelectedSvg/>}
+                                {activePrice == 5 && <SelectedSvg />}
                             </TouchableOpacity>
 
 
@@ -160,54 +159,55 @@ const styles = StyleSheet.create({
         width: '100%',
         // flex:1,
         height: '100%',
-        position:'absolute',
+        position: 'absolute',
         bottom: 0,
         left: 0,
         // backgroundColor:'rgba(0,0,0,0.44)',
         zIndex: 5
     },
     closeSpaceButton: {
-        flex:1 ,
-        backgroundColor:'rgba(0,0,0,0.44)'
+        flex: 1,
+        backgroundColor: 'rgba(0,0,0,0.44)'
     },
     contentWrapper: {
         width: '100%',
         backgroundColor: 'white',
-        position:'absolute',
+        position: 'absolute',
         bottom: 0,
         left: 0,
         // height: 399,
-        flex:1,
-        maxHeight: 480,
+        flex: 1,
+        maxHeight: 520,
         borderTopRightRadius: 10,
         borderTopLeftRadius: 10
     },
     header: {
         width: '100%',
         height: 56,
-        flexDirection:'row',
+        flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems:'center'
+        alignItems: 'center',
+        marginBottom: 10
     },
     mainTitle: {
         padding: 14,
         fontSize: 22,
         color: '#091334',
-        fontWeight:'bold'
+        fontWeight: 'bold'
     },
     footer: {
         width: '100%',
         height: 72,
         paddingHorizontal: 16,
-        justifyContent:"center",
-        alignItems:'center',
-        borderTopWidth:1,
+        justifyContent: "center",
+        alignItems: 'center',
+        borderTopWidth: 1,
         borderTopColor: '#F0F1F4'
     },
-    button:{
+    button: {
         width: '100%',
         height: 48,
-        backgroundColor:'#2B65EE',
+        backgroundColor: '#2B65EE',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 6
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         paddingHorizontal: 16,
-        justifyContent:'space-between',
+        justifyContent: 'space-between',
         marginBottom: 12
     },
     priceInput: {
@@ -241,9 +241,9 @@ const styles = StyleSheet.create({
     item: {
         width: '100%',
         height: 56,
-        flexDirection:'row',
-        justifyContent:'space-between',
-        alignItems:'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         borderBottomWidth: 1,
         borderBottomColor: '#F0F1F4'
     },

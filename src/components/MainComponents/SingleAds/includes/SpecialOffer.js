@@ -22,8 +22,8 @@ import {
 
 import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
 import { useEffect, useState } from "react";
-import SpecialOfferSvg from '../../../../../../assets/Svg/search_component/SpecialOfferSvg';
-import GrayCircle from '../../../../../../assets/Svg/CircleGray'
+import SpecialOfferSvg from '../../../../../assets/Svg/search_component/SpecialOfferSvg';
+import GrayCircle from '../../../../../assets/Svg/CircleGray'
 
 export default function App(props) {
 
@@ -64,7 +64,6 @@ export default function App(props) {
                                     </View>
                                     <Text style={styles.yearAndVilage}> {item.mileage} km</Text>
                                 </View>
-
                                 <Text style={styles.price}>₪ {item.price}</Text>
 
                             </TouchableOpacity>

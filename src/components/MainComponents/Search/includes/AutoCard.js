@@ -19,8 +19,8 @@ import {
     initialWindowMetrics,
 } from 'react-native-safe-area-context';
 
-import Svg, {Defs, G, Path, Rect, Circle, ClipPath} from "react-native-svg";
-import {useEffect, useState} from "react";
+import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
+import { useEffect, useState } from "react";
 
 import HeartSvg from '../../../../../assets/Svg/search_component/HeartSvg'
 import CompareSvg from '../../../../../assets/Svg/search_component/CompareSvg'
@@ -31,7 +31,11 @@ import CrownSvg from '../../../../../assets/Svg/search_component/CrownSvg'
 import LocationSvg from '../../../../../assets/Svg/search_component/LocationSvg'
 import GlobusSvg from '../../../../../assets/Svg/search_component/GlobusSvg'
 import BlueokSvg from '../../../../../assets/Svg/search_component/BlueokSvg'
-// import { SliderBox } from "react-native-image-slider-box";
+import { ImageSlider } from "react-native-image-slider-banner";
+import EyeIcon from '../../../../../assets/Svg/EyeIcon'
+import CloseIcon from '../../../../../assets/Svg/CloseIcon'
+
+
 
 export default function App(props) {
 
@@ -55,16 +59,15 @@ export default function App(props) {
     }, []);
 
 
-    if (!cart_open)
-    {
+    if (!cart_open) {
         return (
             <View style={[styles.closed_wrapper]}>
                 <View style={[styles.closed_cart]}>
 
                     <Text style={[styles.closed_cart_title]}>Mercedes-Benz, A-Class AMG</Text>
 
-                    <TouchableOpacity onPress={()=>{setCartOpen(true)}}>
-                        <CloseEyeSvg/>
+                    <TouchableOpacity onPress={() => { setCartOpen(true) }}>
+                        <CloseEyeSvg />
                     </TouchableOpacity>
 
                 </View>
@@ -77,13 +80,31 @@ export default function App(props) {
     return (
 
         <TouchableOpacity
-            onPress={() => {props.navigation.navigate('SingleAdsComponent')}}
+            onPress={() => { props.navigation.navigate('SingleAdsComponent') }}
             style={styles.wrapper}
         >
 
             <View style={styles.imageWrapper}>
-                <Image style={styles.image} source={require('../../../../../assets/images/car_photo3.png')}/>
+                <ImageSlider
+                    preview={true}
+                    data={[
+                        { img: 'https://rg.ru/uploads/images/2022/10/04/8_9a9.jpeg' },
+                        { img: 'https://media.autoexpress.co.uk/image/private/s--oSvWw2tM--/v1664984236/evo/2022/10/Audi%20RS4%20Competition%20review-9.jpg' },
+                        { img: 'https://images.drive.ru/i/0/60cc2c1a745a9a38d75c2f8d.jpg' }
+                    ]}
+                    autoPlay={false}
+                    onItemChanged={(item) => console.log("item", item)}
+                    closeIconColor="#fff"
+                    caroselImageStyle={{ resizeMode: 'cover', height: 200 }}
+                />
+
             </View>
+            {props.topButton ?
+                <TouchableOpacity style={[styles.grayButton, { backgroundColor: '#FFF2DE' }]} >
+                    <Text style={[styles.grayButtonText, { color: '#091334' }]} >Созвониться в понедельник и дого...</Text>
+                    <CloseIcon />
+                </TouchableOpacity>
+                : ''}
 
             <View style={styles.actionsMainWrapper}>
 
@@ -93,20 +114,20 @@ export default function App(props) {
 
                 <View style={styles.actionsWrapper}>
 
-                    <TouchableOpacity onPress={() => {setHeart(!heart)}} style={styles.actionsItem}>
-                        <HeartSvg active={heart}/>
+                    <TouchableOpacity onPress={() => { setHeart(!heart) }} style={styles.actionsItem}>
+                        <HeartSvg active={heart} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => {setCompare(!compare)}} style={styles.actionsItem}>
-                        <CompareSvg active={compare}/>
+                    <TouchableOpacity onPress={() => { setCompare(!compare) }} style={styles.actionsItem}>
+                        <CompareSvg active={compare} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.actionsItem} onPress={() => {setCartOpen(false)}}>
+                    <TouchableOpacity style={styles.actionsItem} onPress={() => { setCartOpen(false) }}>
                         <OpenEyeSvg />
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => {setNote(!note)}} style={[styles.actionsItem, {marginRight: 0}]}>
-                        <NoteSvg active={note}/>
+                    <TouchableOpacity onPress={() => { setNote(!note) }} style={[styles.actionsItem, { marginRight: 0 }]}>
+                        <NoteSvg active={note} />
                     </TouchableOpacity>
 
                 </View>
@@ -119,19 +140,19 @@ export default function App(props) {
                 </Text>
             </View>
 
-            <ScrollView horizontal={true} style={{width: '100%'}}>
+            <ScrollView horizontal={true} style={{ width: '100%' }}>
 
                 <View style={styles.infoWrapper}>
 
                     <Text style={styles.info_text}>2014</Text>
 
-                    <Svg style={{marginHorizontal:6}} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <Svg style={{ marginHorizontal: 6 }} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <Rect width={4} height={4} rx={2} fill="#C4C8D4" />
                     </Svg>
 
                     <Text style={styles.info_text}>142 000 km</Text>
 
-                    <Svg style={{marginHorizontal:6}} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <Svg style={{ marginHorizontal: 6 }} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <Rect width={4} height={4} rx={2} fill="#C4C8D4" />
                     </Svg>
 
@@ -141,36 +162,36 @@ export default function App(props) {
 
             </ScrollView>
 
-            <ScrollView horizontal={true} style={{width: '100%'}}>
+            <ScrollView horizontal={true} style={{ width: '100%' }}>
                 <View style={styles.infoWrapper}>
 
                     <Text style={styles.info_text}>Gasoline</Text>
 
-                    <Svg style={{marginHorizontal:6}} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <Svg style={{ marginHorizontal: 6 }} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <Rect width={4} height={4} rx={2} fill="#C4C8D4" />
                     </Svg>
 
                     <Text style={styles.info_text}>2.0 l</Text>
 
-                    <Svg style={{marginHorizontal:6}} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <Svg style={{ marginHorizontal: 6 }} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <Rect width={4} height={4} rx={2} fill="#C4C8D4" />
                     </Svg>
 
                     <Text style={styles.info_text}>165 hp</Text>
 
-                    <Svg style={{marginHorizontal:6}} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <Svg style={{ marginHorizontal: 6 }} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <Rect width={4} height={4} rx={2} fill="#C4C8D4" />
                     </Svg>
 
                     <Text style={styles.info_text}>Automatic</Text>
 
-                    <Svg style={{marginHorizontal:6}} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <Svg style={{ marginHorizontal: 6 }} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <Rect width={4} height={4} rx={2} fill="#C4C8D4" />
                     </Svg>
 
                     <Text style={styles.info_text}>Front-wheel</Text>
 
-                    <Svg style={{marginHorizontal:6}} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <Svg style={{ marginHorizontal: 6 }} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <Rect width={4} height={4} rx={2} fill="#C4C8D4" />
                     </Svg>
 
@@ -179,30 +200,30 @@ export default function App(props) {
                 </View>
             </ScrollView>
 
-            <ScrollView horizontal={true} style={{width: '100%'}}>
+            <ScrollView horizontal={true} style={{ width: '100%' }}>
 
                 <View style={styles.infoWrapper}>
-                    <CrownSvg/>
+                    <CrownSvg />
 
-                    <Svg style={{marginHorizontal:6}} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <Svg style={{ marginHorizontal: 6 }} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <Rect width={4} height={4} rx={2} fill="#C4C8D4" />
                     </Svg>
 
-                    <LocationSvg style={{marginRight: 6}}/>
+                    <LocationSvg style={{ marginRight: 6 }} />
                     <Text style={styles.info_text}>Ришон-ле-Цион</Text>
 
-                    <Svg style={{marginHorizontal:6}} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <Svg style={{ marginHorizontal: 6 }} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <Rect width={4} height={4} rx={2} fill="#C4C8D4" />
                     </Svg>
 
-                    <GlobusSvg style={{marginRight: 6}}/>
+                    <GlobusSvg style={{ marginRight: 6 }} />
                     <Text style={styles.info_text}>Ив Ру</Text>
 
-                    <Svg style={{marginHorizontal:6}} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <Svg style={{ marginHorizontal: 6 }} width={4} height={4} viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <Rect width={4} height={4} rx={2} fill="#C4C8D4" />
                     </Svg>
 
-                    <BlueokSvg style={{marginRight: 6}}/>
+                    <BlueokSvg style={{ marginRight: 6 }} />
                     <Text style={styles.info_text}>Трейд Кар</Text>
 
                 </View>
@@ -210,7 +231,7 @@ export default function App(props) {
             </ScrollView>
 
 
-            <ScrollView horizontal={true} style={{width: '100%',marginTop: 18}}>
+            <ScrollView horizontal={true} style={{ width: '100%', marginTop: 18 }}>
 
                 <TouchableOpacity style={styles.yellowWrapper}>
                     <Text style={styles.yellowText}>Срочно</Text>
@@ -227,28 +248,13 @@ export default function App(props) {
                 </TouchableOpacity>
 
             </ScrollView>
-
-            {/*<ScrollView horizontal={true} style={{width: '100%'}}>*/}
-
-            {/*    {data.map((item, index) => {*/}
-            {/*          return (*/}
-            {/*            <TouchableOpacity key={index} style={styles.newAdsWrapperItem}>*/}
-
-            {/*                <View style={styles.newAdsWrapperItemImageWrapper}>*/}
-            {/*                    <Image style={styles.newAdsWrapperItemImage} source={item.image}/>*/}
-            {/*                    {item.icon}*/}
-            {/*                </View>*/}
-
-            {/*                <Text style={styles.title}>{item.title}</Text>*/}
-            {/*                <Text style={styles.yearAndVilage}>{item.year} - {item.mileage} km</Text>*/}
-            {/*                <Text style={styles.price}>₪ {item.price}</Text>*/}
-
-
-            {/*            </TouchableOpacity>*/}
-            {/*        )*/}
-            {/*    })}*/}
-
-            {/*</ScrollView>*/}
+            {props.mercedess ?
+                <TouchableOpacity style={styles.grayButton} >
+                    <Text style={styles.grayButtonText} >Mercedes-Benz, A-Class AMG</Text>
+                    <EyeIcon />
+                </TouchableOpacity>
+                :
+                ''}
         </TouchableOpacity>
     );
 
@@ -264,15 +270,15 @@ const styles = StyleSheet.create({
     actionsMainWrapper: {
         width: '100%',
         marginTop: 12,
-        flexDirection:'row',
-        justifyContent:'space-between',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         marginBottom: 8
     },
 
     priceWrapper: {
         paddingHorizontal: 8,
         paddingVertical: 4,
-        backgroundColor:'#E6F2FF',
+        backgroundColor: '#E6F2FF',
         borderRadius: 6
     },
     price: {
@@ -282,7 +288,7 @@ const styles = StyleSheet.create({
     },
     actionsWrapper: {
         flexDirection: 'row',
-        alignItems:'center',
+        alignItems: 'center',
     },
 
     actionsItem: {
@@ -291,7 +297,7 @@ const styles = StyleSheet.create({
 
     titleWrapper: {
         width: '100%',
-        marginBottom:8
+        marginBottom: 8
     },
     title: {
         fontSize: 18,
@@ -299,13 +305,13 @@ const styles = StyleSheet.create({
     },
 
     infoWrapper: {
-        flexDirection:'row',
+        flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 4
     },
     info_text: {
-        fontSize:14,
-        color:'#091334'
+        fontSize: 14,
+        color: '#091334'
     },
 
     yellowWrapper: {
@@ -314,29 +320,29 @@ const styles = StyleSheet.create({
         paddingHorizontal: 8,
         backgroundColor: '#FFF2DE',
         justifyContent: 'center',
-        alignItems:'center',
+        alignItems: 'center',
         marginRight: 8,
         borderRadius: 6,
 
     },
     yellowText: {
-        fontSize:12,
+        fontSize: 12,
         color: '#091334'
     },
     closed_wrapper: {
         width: '100%',
-        paddingHorizontal:16,
+        paddingHorizontal: 16,
     },
     closed_cart: {
         width: '100%',
-        backgroundColor:'#F0F1F4',
+        backgroundColor: '#F0F1F4',
         height: 48,
         marginBottom: 24,
         borderRadius: 8,
-        flexDirection:'row',
-        justifyContent:'space-between',
-        alignItems:'center',
-        paddingHorizontal:16,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingHorizontal: 16,
 
     },
     closed_cart_title: {
@@ -348,14 +354,29 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 200,
         borderRadius: 8,
-        overflow:'hidden'
+        overflow: 'hidden'
     },
     image: {
         width: '100%',
         height: '100%',
-        resizeMode:'cover'
+        resizeMode: 'cover'
     },
 
-
+    grayButton: {
+        width: '100%',
+        height: 44,
+        backgroundColor: '#F0F1F4',
+        marginTop: 10,
+        marginBottom: 10,
+        borderRadius: 6,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: 12
+    },
+    grayButtonText: {
+        fontSize: 14,
+        color: '#6C7694'
+    }
 
 })

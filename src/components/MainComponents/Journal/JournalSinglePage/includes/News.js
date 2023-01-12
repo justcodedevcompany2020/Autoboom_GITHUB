@@ -14,7 +14,7 @@ import {
 export default function App() {
     return (
         <View style={styles.container} >
-            <Text style={styles.headetText} >Кто такой «Фискер»</Text>
+            <Text style={styles.headetText} >Что известно о «Груше»</Text>
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginTop: 15 }} >
                 <Image
                     style={{ width: '49%', borderRadius: 8, height: 100 }}

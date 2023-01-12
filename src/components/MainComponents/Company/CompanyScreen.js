@@ -16,6 +16,7 @@ import TopNavigation from '../../../../src/navigation/TopNavigation';
 import CompanySearchBlock from './includes/CompanySearchBlock';
 import DillersBlock from './includes/DillersBlock';
 import NavigationBottomMenu from '../../includes/NavigationBottomMenu'
+import CardAndFilter from './includes/Card&Filter'
 
 export default function App(props) {
     return (
@@ -29,6 +30,7 @@ export default function App(props) {
             <ScrollView style={{ width: '100%', flex: 1 }} >
                 <CompanySearchBlock />
                 <DillersBlock />
+                <CardAndFilter navigation={props.navigation} />
             </ScrollView>
             <NavigationBottomMenu navigation={props.navigation} active_page={''} />
         </SafeAreaView>

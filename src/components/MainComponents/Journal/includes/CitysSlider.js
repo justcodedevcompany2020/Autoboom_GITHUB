@@ -28,7 +28,7 @@ export default function App(props) {
                             }}
                             style={styles.menuTopButton}
                         >
-                            <View style={{ flexDirection: 'row', alignItems: 'center' }} >
+                            <View style={[{ flexDirection: 'row', alignItems: 'center' }, active_button != item.menuid && { opacity: 0.5 }]} >
                                 <Image
                                     style={{ width: 30, height: 20 }}
                                     source={require('../../../../../assets/images/flag.png')} />
@@ -48,7 +48,9 @@ export default function App(props) {
                         return (
                             <TouchableOpacity
                                 onPress={() => props.navigation.navigate('JournalSinglePage')}
-                                key={index} style={styles.Item}>
+                                key={index}
+                                style={[styles.Item, index == 2  && { borderBottomColor: 'white' }]}
+                            >
                                 <Image
                                     style={{ width: 120, height: 82, borderRadius: 8 }}
                                     source={item.image} />
@@ -58,7 +60,11 @@ export default function App(props) {
                     }
 
                 })}
+                <TouchableOpacity style={styles.blueButton} >
+                    <Text style={styles.blueButtonText} >Показать все статьи из категории</Text>
+                </TouchableOpacity>
             </View>
+
         </View>
     )
 }
@@ -115,5 +121,18 @@ const styles = StyleSheet.create({
     },
     postsWrapper: {
         padding: 15,
+    },
+    blueButton: {
+        width: '100%',
+        height: 44,
+        backgroundColor: '#E5F2FF',
+        borderRadius: 6,
+        marginTop: 15,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    blueButtonText: {
+        color: '#2B65EE',
+        fontSize: 16
     }
 })

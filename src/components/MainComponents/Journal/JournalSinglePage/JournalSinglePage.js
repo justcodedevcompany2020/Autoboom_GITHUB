@@ -61,7 +61,7 @@ export default function App(props) {
             <ScrollView style={{ width: '100%', flex: 1 }} >
                 <Publish />
                 <Description />
-                <CarsNews />
+                <CarsNews  />
                 <News />
                 <Select />
                 <ShareinSocial />

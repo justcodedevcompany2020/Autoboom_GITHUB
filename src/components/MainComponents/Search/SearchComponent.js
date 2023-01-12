@@ -213,8 +213,8 @@ export default function App(props) {
 
                 </View>
 
-                <AutoCard navigation={props.navigation} />
-                <AutoCard navigation={props.navigation} />
+                <AutoCard navigation={props.navigation} mercedess />
+                <AutoCard navigation={props.navigation} topButton />
                 <AutoCard navigation={props.navigation} />
 
                 <SpecialOfferBlock data={see_ads} />

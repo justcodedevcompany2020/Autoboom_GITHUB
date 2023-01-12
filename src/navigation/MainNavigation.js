@@ -71,22 +71,7 @@ export default function App(props) {
 
             </View>
 
-            <View style={styles.borderFilterWrapper}>
-
-                <View style={styles.autoMarksWrapper}>
-                    <ScrollView horizontal={true} style={styles.autoMarksScrollView}>
-
-                        {marks.map((item, index) => {
-                            return (
-                                <TouchableOpacity key={index} style={styles.autoMarksItem}>
-                                    {item.icon}
-                                </TouchableOpacity>
-                            )
-                        })}
-
-                    </ScrollView>
-                </View>
-            </View>
+       
 
         </View>
     )

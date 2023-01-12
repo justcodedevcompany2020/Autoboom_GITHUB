@@ -65,8 +65,6 @@ export default function App(props)
 
         return (
           <View style={styles_mod.mainWrapper}>
-              <Text style={styles_mod.mainTitle}>Модификации</Text>
-
               <View style={styles_mod.itemsWrapper}>
 
                   <Text style={styles_mod.mainTitle2}>Для Израиля</Text>

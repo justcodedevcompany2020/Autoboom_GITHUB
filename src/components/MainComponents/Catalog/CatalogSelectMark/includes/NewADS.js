@@ -98,7 +98,8 @@ const styles = StyleSheet.create({
         width: '100%',
         marginTop: 12,
         color: '#091334',
-        fontSize: 16
+        fontSize: 16,
+        fontWeight:'700'
     },
     yearAndVilage: {
         color: '#6C7694',
