@@ -29,10 +29,10 @@ export default function App(props) {
             <TopNavigation navigation={props.navigation} />
             <ScrollView style={{ width: '100%', flex: 1 }} >
                 <CompanySearchBlock />
-                <DillersBlock />
+                <DillersBlock navigation={props.navigation} />
                 <CardAndFilter navigation={props.navigation} />
             </ScrollView>
-            <NavigationBottomMenu navigation={props.navigation} active_page={''} />
+            <NavigationBottomMenu navigation={props.navigation} active_page={'Search'} />
         </SafeAreaView>
     )
 }

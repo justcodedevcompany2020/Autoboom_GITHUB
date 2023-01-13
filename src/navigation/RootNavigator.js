@@ -27,6 +27,8 @@ import JournalThemes from '../components/MainComponents/Journal/JournalThemes/Jo
 import JournalMarks from '../components/MainComponents/Journal/JournalMarks/JournalMarks'
 import CompanyScreen from '../components/MainComponents/Company/CompanyScreen'
 import CompanyFilter from '../components/MainComponents/Company/CompanyFilter/CompanyFilter'
+import CompanyMap from '../components/MainComponents/Company/CompanyMap/CompanyMap'
+import AboutCompany from '../components/MainComponents/Company/AboutCompany/AboutCompany'
 
 
 // const Tab = createBottomTabNavigator();
@@ -196,6 +198,22 @@ const RootNavigator = () => {
                 <Stack.Screen
                     name="CompanyFilter"
                     component={CompanyFilter}
+                    options={({ route }) => ({
+                        tabBarButton: () => null,
+                        tabBarStyle: { display: 'none' },
+                    })}
+                />
+                <Stack.Screen
+                    name='CompanyMap'
+                    component={CompanyMap}
+                    options={({ route }) => ({
+                        tabBarButton: () => null,
+                        tabBarStyle: { display: 'none' },
+                    })}
+                />
+                <Stack.Screen
+                    name='AboutCompany'
+                    component={AboutCompany}
                     options={({ route }) => ({
                         tabBarButton: () => null,
                         tabBarStyle: { display: 'none' },

@@ -13,20 +13,14 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
-import Journale from '../includes/Journale'
-import PopularModels from './includes/PopularModels'
-import NavigationBottomMenu from '../../../includes/NavigationBottomMenu'
+import Navigation from './includes/Navigation'
+import ServiceBlock from './includes/ServiceBlock'
+import Footer from './includes/Footer'
+import DillerBlock from './includes/DillersBlock'
+import AutoCard from '../../../MainComponents/Search/includes/AutoCard'
+import TimeToWork from './includes/TimeToWork'
 
 export default function App(props) {
-
-    const [journale, setJournale] = React.useState([
-        { title: 'Ниссан Джук совершенствуется', date: '28 Октября 2022', image: require('../../../../../assets/images/journaleauto.png'), menuid: 1 },
-        { title: 'Новый Тойота Ленд Крузер 2023 года: ждите, скоро буду', date: '28 Октября 2022', image: require('../../../../../assets/images/journaleauto.png'), menuid: 1 },
-        { title: 'Ниссан Джук совершенствуется', date: '28 Октября 2022', image: require('../../../../../assets/images/journaleauto.png'), menuid: 1 },
-        { title: 'Новый Тойота Ленд Крузер 2023 года: ждите, скоро буду', date: '28 Октября 2022', image: require('../../../../../assets/images/journaleauto.png'), menuid: 1 },
-        { title: 'Ниссан Джук совершенствуется', date: '28 Октября 2022', image: require('../../../../../assets/images/journaleauto.png'), menuid: 1 },
-        { title: 'Новый Тойота Ленд Крузер 2023 года: ждите, скоро буду', date: '28 Октября 2022', image: require('../../../../../assets/images/journaleauto.png'), menuid: 1 },
-    ]);
 
     return (
         <SafeAreaView style={styles.container} >
@@ -34,7 +28,7 @@ export default function App(props) {
                 <View style={[styles.headerItem, styles.flex1]}>
                     <TouchableOpacity
                         onPress={() => {
-                            props.navigation.navigate('JournalPage')
+                            props.navigation.navigate('CompanyMap')
                         }}
                         style={{}}
                     >
@@ -46,16 +40,28 @@ export default function App(props) {
 
                 <View style={[styles.headerItem, styles.flex2]}>
                     <View style={styles.headerProf} >
-                        <Text style={styles.appName} >Журнал</Text>
+                        <Text style={styles.appName} >Компании</Text>
                     </View>
                 </View>
                 <View style={[styles.headerItem, styles.flex1, styles.headerItemRight]}></View>
             </View>
-            <ScrollView style={{ width: '100%', flex: 1 }}>
-                <PopularModels navigation={props.navigation} />
-                <Journale navigation={props.navigation} data={journale} />
+            <ScrollView style={{ width: '100%', flex: 1 }} >
+                <Navigation />
+
+                <View style={{ paddingHorizontal: 16 }} >
+                    <ServiceBlock />
+                    <TimeToWork />
+                </View>
+                <View style={{ marginTop: 10 }} >
+                    <AutoCard />
+                </View>
+                <View style={{ marginTop: 10 }} >
+                    <AutoCard />
+                </View>
+
+                <DillerBlock />
             </ScrollView>
-            <NavigationBottomMenu navigation={props.navigation} active_page={'Search'} />
+            <Footer />
         </SafeAreaView>
     )
 }

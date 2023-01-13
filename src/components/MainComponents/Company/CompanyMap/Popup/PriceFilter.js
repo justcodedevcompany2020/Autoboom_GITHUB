@@ -42,14 +42,14 @@ let data = [
 ]
 
 export default function App(props) {
-    const [show_service_filter, setShowServiceFilter] = useState(true)
+    const [is_open_popup, setIsOpenPopup] = useState(false)
     const [sortBy, setSortBy] = useState('')
-    
 
-    if (show_service_filter) {
+
+    if (is_open_popup) {
         return (
             <View style={styles.mainWrapper}>
-                <TouchableOpacity onPress={() => { setShowServiceFilter(false); props.onChange(); }} style={styles.closeSpaceButton}>
+                <TouchableOpacity onPress={() => { setIsOpenPopup(false); props.onChange(); }} style={styles.closeSpaceButton}>
 
                 </TouchableOpacity>
 
@@ -58,7 +58,7 @@ export default function App(props) {
                     <View style={styles.header}>
                         <View></View>
                         <Text style={styles.mainTitle}>Выбор услуги</Text>
-                        <TouchableOpacity onPress={() => { props.onChange(); setShowServiceFilter(false) }}>
+                        <TouchableOpacity onPress={() => { props.onChange(); setIsOpenPopup(false) }}>
                             <CloseSvg />
                         </TouchableOpacity>
                     </View>
@@ -80,7 +80,7 @@ export default function App(props) {
                     </ScrollView>
                     <View style={styles.footer}>
                         <TouchableOpacity
-                            onPress={() => { setShowServiceFilter(false); props.onChange(); }}
+                            onPress={() => { setIsOpenPopup(false); props.onChange(); }}
                             style={styles.button}>
                             <Text style={styles.buttonText}>Закрыть</Text>
                         </TouchableOpacity>

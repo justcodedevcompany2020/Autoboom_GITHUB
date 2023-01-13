@@ -12,10 +12,12 @@ import {
     TextInput
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import CloseIcon from '../../../../../assets/Svg/CloseIcon'
-import DillersBlock from './includes/DillersBlock'
-import Arrow from '../../../../../assets/Svg/ArowGray'
-import ServiceFilter from './Popup/PriceFilter'
+import CloseIcon from '../../../../../assets/Svg/CloseSvg';
+import DillersBlock from './includes/DillersBlock';
+import Arrow from '../../../../../assets/Svg/ArowGray';
+import ServiceFilter from './Popup/PriceFilter';
+import MarksPopup from './Popup/MarksPopup'
+
 
 let data = [
     { id: 1, text: 'Официальные дилеры', key: 'Официальные дилеры' },
@@ -25,6 +27,9 @@ let data = [
 export default function App(props) {
 
     const [show_service_filter, setShowServiceFilter] = React.useState(false)
+    const [show_marks_filter, setShowMarksFilter] = React.useState(false)
+
+    // console.log(props.route.params)
 
     return (
         <SafeAreaView style={styles.container} >
@@ -33,7 +38,7 @@ export default function App(props) {
                     <Text style={[styles.appName, { color: '#2B65EE', fontWeight: '400' }]}>очистить</Text>
                 </TouchableOpacity>
                 <View style={[styles.headerItem, styles.flex2]}>
-                    <Text style={[styles.appName, { marginRight: 51 }]}>Фильтры</Text>
+                    <Text style={[styles.appName, { marginRight: 21 }]}>Фильтры</Text>
                 </View>
                 <TouchableOpacity
                     onPress={() => props.navigation.navigate('CompanyScreen')}
@@ -58,7 +63,9 @@ export default function App(props) {
                 </View>
                 <Text style={[styles.boldText, { marginTop: 25 }]} >Марка</Text>
                 <View style={{ paddingHorizontal: 16, width: '100%' }} >
-                    <TouchableOpacity style={styles.input} >
+                    <TouchableOpacity
+                        onPress={() => { setShowMarksFilter(true) }}
+                        style={styles.input} >
                         <Text style={styles.inputColor} >Любая</Text>
                         <Arrow />
                     </TouchableOpacity>
@@ -88,7 +95,10 @@ export default function App(props) {
                 </TouchableOpacity>
             </View>
             {show_service_filter &&
-                <ServiceFilter show={show_service_filter} onChange={() => { setShowServiceFilter(!show_service_filter) }} />
+                <ServiceFilter show={show_service_filter} onChange={() => { setShowServiceFilter(!show_service_filter) }}  />
+            }
+            {show_marks_filter &&
+                <MarksPopup show={show_marks_filter} onChange={() => { setShowMarksFilter(!show_marks_filter) }} />
             }
         </SafeAreaView>
     )
@@ -108,7 +118,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginTop:25
+        marginTop: 25
     },
     appName: {
         fontSize: 18,

@@ -23,7 +23,7 @@ import {
 import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
 import { useEffect, useState } from "react";
 
-import UnionSvg from '../../../../../assets/Svg/UnionSvg'
+import UnionSvg from '../../../../../../assets/Svg/UnionSvg'
 
 const dataButton = [
     { title: 'Все', id: 1 },
@@ -61,9 +61,7 @@ export default function App(props) {
 
         if (item.id === activeButton) {
             return (
-                <TouchableOpacity
-                    onPress={() => props.navigation.navigate('AboutCompany')}
-                    style={styles.item} key={index}>
+                <TouchableOpacity style={styles.item} key={index}>
                     <View style={styles.topTitleWrapper}>
 
                         <Text style={styles.title}>{item.title}</Text>
@@ -128,33 +126,7 @@ export default function App(props) {
 
     return (
         <View style={styles.dillersTop}>
-            <View style={styles.dillersTopButtonWrapper}>
-                <ScrollView
-                    horizontal={true}
-                    style={{ width: '100%', height: 40, marginLeft: 10 }}
-                >
-                    {dataButton.map((res, index) => {
-                        return (
-                            <TouchableOpacity
-                                key={index}
-                                onPress={() => {
-                                    setActiveButton(res.id);
-                                }}
-                                style={[styles.sliderBlock, activeButton === res.id ? { backgroundColor: '#E6F2FF', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' } : {}]} >
-                                {
-                                    activeButton === res.id &&
-                                    <Svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <Path d="M1.45454 5.175L6.21488 10.125L14.5455 1.875" stroke="#2B65EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </Svg>
-                                }
-
-                                <Text style={[styles.nameButton, activeButton === res.id ? { color: '#2B65EE', marginLeft: 5 } : {}]}  >{res.title}</Text>
-                            </TouchableOpacity>
-                        )
-                    })}
-                </ScrollView>
-
-            </View>
+            <Text style={styles.boldText} > Другие компании в{'\n'} Иерусалиме</Text>
 
             {last_search_active_button == 0 &&
 
@@ -205,7 +177,8 @@ const styles = StyleSheet.create({
     dillersTop: {
         width: '100%',
         // paddingHorizontal: 16,
-        marginBottom: 16
+        marginBottom: 16,
+        marginTop: 20
     },
     dillersTopTitle: {
         color: '#091334',
@@ -343,16 +316,16 @@ const styles = StyleSheet.create({
     showMoreButton: {
         width: '100%',
         height: 48,
-        backgroundColor: 'white',
+        backgroundColor: '#E6F2FF',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 6,
-        borderWidth: 1,
-        borderColor: '#C4C8D4'
+        // borderWidth: 1,
+        // borderColor: '#C4C8D4'
     },
     showMoreButtonText: {
         fontSize: 16,
-        color: '#091334'
+        color: '#2B65EE'
     },
     sliderBlock: {
         backgroundColor: '#F0F1F4',
@@ -366,5 +339,13 @@ const styles = StyleSheet.create({
     nameButton: {
         color: '#6C7693',
         fontSize: 16
+    },
+    boldText: {
+        paddingHorizontal: 16,
+        marginTop: 20,
+        marginBottom: 20,
+        color: '#091334',
+        fontSize: 22,
+        fontWeight: '700'
     }
 })

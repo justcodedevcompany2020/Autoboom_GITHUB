@@ -67,7 +67,7 @@ export default function App(props) {
                 <ShareinSocial />
                 <SliderBlock />
             </ScrollView>
-            <NavigationBottomMenu navigation={props.navigation} active_page={''} />
+            <NavigationBottomMenu navigation={props.navigation} active_page={'Search'} />
         </SafeAreaView>
     )
 }

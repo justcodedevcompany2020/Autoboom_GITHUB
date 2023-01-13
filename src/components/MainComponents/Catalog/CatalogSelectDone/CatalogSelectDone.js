@@ -259,7 +259,7 @@ export default function App(props) {
                 />
                 <DillerChangeBlock onPress={handleOpenSelectDonePopUpInCloseSelectDonePage} />
             </ScrollView>
-            <NavigationBottomMenu navigation={props.navigation} active_page={''} />
+            <NavigationBottomMenu navigation={props.navigation} active_page={'Search'} />
         </SafeAreaView>
     )
 }

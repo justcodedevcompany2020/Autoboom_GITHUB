@@ -56,7 +56,7 @@ export default function App(props) {
                 </View>
                 <Journale navigation={props.navigation} data={journale} />
             </ScrollView>
-            <NavigationBottomMenu navigation={props.navigation} active_page={''} />
+            <NavigationBottomMenu navigation={props.navigation} active_page={'Search'} />
         </SafeAreaView>
     )
 }

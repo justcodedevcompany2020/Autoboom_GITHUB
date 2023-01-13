@@ -158,11 +158,11 @@ export default function App(props) {
 
             <ScrollView style={{ width: '100%', flex: 1 }}>
 
-            <View style={{ width: '100%', paddingHorizontal: 16, marginBottom: 16, flexDirection:'row', alignItems:'center', justifyContent:'space-between' }}>
-                    <Text style={{ fontSize: 22, fontWeight: 'bold', lineHeight: 28, width:300 }}>Ауди SQ8 Спортбэк e-tron</Text>
-                    <Image 
-                    style={{width:44, height:44}}
-                    source={require('../../../../../assets/images/audi.png')} /> 
+                <View style={{ width: '100%', paddingHorizontal: 16, marginBottom: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <Text style={{ fontSize: 22, fontWeight: 'bold', lineHeight: 28, width: 300 }}>Ауди SQ8 Спортбэк e-tron</Text>
+                    <Image
+                        style={{ width: 44, height: 44 }}
+                        source={require('../../../../../assets/images/audi.png')} />
                 </View>
 
                 <View style={styles.inputWrapper}>
@@ -218,7 +218,7 @@ export default function App(props) {
                 />
             </ScrollView>
 
-            <NavigationBottomMenu navigation={props.navigation} active_page={''} />
+            <NavigationBottomMenu navigation={props.navigation} active_page={'Search'} />
 
 
         </SafeAreaView>

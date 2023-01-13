@@ -58,11 +58,11 @@ export default function App(props) {
 
 
                 <TouchableOpacity
-                  onPress={() => props.navigation.navigate('CompanyScreen')}
+                    onPress={() => props.navigation.navigate('CompanyScreen')}
                     style={styles.menuTopButton}
                 >
-                    <Text style={[styles.menuTopButtonText, route.name == 'CompanyScreen' ? styles.menuTopButtonTextActive : null]}>Компании</Text>
-                    {route.name === 'CompanyScreen' && <View style={styles.menuTopButtonActiveLine}></View>}
+                    <Text style={[styles.menuTopButtonText, route.name == 'CompanyScreen' || route.name === 'CompanyMap' ? styles.menuTopButtonTextActive : null]}>Компании</Text>
+                    {route.name === 'CompanyScreen' || route.name === 'CompanyMap' ? <View style={styles.menuTopButtonActiveLine}></View> : ''}
                 </TouchableOpacity>
 
 
@@ -77,8 +77,6 @@ const styles = StyleSheet.create({
         height: 36,
         width: '100%',
         paddingHorizontal: 16,
-        borderBottomColor: 'rgba(0, 0, 0, 0.1)',
-        borderBottomWidth: 1,
         marginBottom: 17
     },
     scrollView: {
@@ -88,8 +86,6 @@ const styles = StyleSheet.create({
     menuTopButtonWrapper: {
         width: '100%',
         height: 36,
-        // backgroundColor:'silver',
-        // marginBottom: 24,
         flexDirection: 'row'
     },
 

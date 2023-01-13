@@ -14,15 +14,10 @@ import {
 
 import {
     SafeAreaView,
-    SafeAreaProvider,
-    SafeAreaInsetsContext,
-    useSafeAreaInsets,
-    initialWindowMetrics,
 } from 'react-native-safe-area-context';
 import { useSelector, useDispatch, } from 'react-redux';
 import { } from '../../../../redux/actions/actions';
 
-// import SpecialOfferBlock from './includes/SpecialOffer';
 import NavigationBottomMenu from '../../../includes/NavigationBottomMenu';
 
 
@@ -197,7 +192,7 @@ export default function App(props) {
                     textThird={'Ремонт и обслуживание '}
                 />
             </ScrollView>
-            <NavigationBottomMenu navigation={props.navigation} active_page={''} />
+            <NavigationBottomMenu navigation={props.navigation} active_page={'Search'} />
         </SafeAreaView>
     );
 }

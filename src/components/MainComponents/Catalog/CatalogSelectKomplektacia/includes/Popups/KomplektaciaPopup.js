@@ -20,8 +20,6 @@ import {
     initialWindowMetrics,
 } from 'react-native-safe-area-context';
 
-// import SpecialOfferBlock from './includes/SpecialOffer';
-// import NavigationBottomMenu from '../../../includes/NavigationBottomMenu';
 
 import { useSelector, useDispatch, } from 'react-redux';
 import { closeKomplektaciaPopUpInCatalogSelectKomplektaciaPage } from '../../../../../../redux/actions/actions';

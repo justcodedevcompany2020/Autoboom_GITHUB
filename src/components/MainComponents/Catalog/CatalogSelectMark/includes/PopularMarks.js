@@ -14,19 +14,6 @@ import {
 import { useSelector, useDispatch, } from 'react-redux';
 import { openMarkiPopUpInCatalogSelectMarkPage } from '../../../../../redux/actions/actions';
 
-import {
-    SafeAreaView,
-    SafeAreaProvider,
-    SafeAreaInsetsContext,
-    useSafeAreaInsets,
-    initialWindowMetrics,
-} from 'react-native-safe-area-context';
-
-// import SpecialOfferBlock from './includes/SpecialOffer';
-// import NavigationBottomMenu from '../../../includes/NavigationBottomMenu';
-
-
-import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
 import { useEffect, useState } from "react";
 
 

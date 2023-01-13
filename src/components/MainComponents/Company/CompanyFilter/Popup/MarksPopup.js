@@ -23,33 +23,34 @@ import {
 import { useEffect, useState } from "react";
 import CloseSvg from '../../../../../../assets/Svg/CloseSvg';
 import SelectedSvg from '../../../../../../assets/Svg/SelectedSvg';
-
+import AudiLogo from '../../../../../../assets/Svg/AudiLogo'
 
 let data = [
-    { id: 1, text: 'Любая', key: 'Любая' },
-    { id: 2, text: 'Выхлопная система', key: 'Выхлопная система' },
-    { id: 3, text: 'Детейлинг', key: 'Детейлинг' },
-    { id: 4, text: 'Диагностика', key: 'Диагностика' },
-    { id: 5, text: 'Замена жидкостей', key: 'Замена жидкостей' },
-    { id: 6, text: 'Мойка и полировка', key: 'Мойка и полировка' },
-    { id: 7, text: 'Рулевое управление', key: 'Рулевое управление' },
-    { id: 8, text: 'Стекла и зеркала', key: 'Стекла и зеркала' },
-    { id: 9, text: 'Техническое обслуживание', key: 'Техническое обслуживание' },
-    { id: 10, text: 'Любая', key: 'Любая1' },
-    { id: 11, text: 'Выхлопная', key: 'Любая2' },
-    { id: 12, text: 'Мойка', key: 'Любая3' },
-    { id: 13, text: 'Рулевое', key: 'ЛюбаРулевоея' },
+    { id: 1, text: 'Любая', key: 'Любая', },
+    { id: 2, text: 'Ауди', key: 'Ауди', alphavit: 'А', logo: <AudiLogo /> },
+    { id: 3, text: 'Альфа Ромео', key: 'Альфа Ромео', logo: <AudiLogo /> },
+    { id: 4, text: 'Айвейс', key: 'Айвейс', logo: <AudiLogo /> },
+    { id: 5, text: 'Астон Мартин', key: 'Астон Мартин', logo: <AudiLogo /> },
+    { id: 6, text: 'БМВ', key: 'БМВ', alphavit: 'Б', logo: <AudiLogo /> },
+    { id: 7, text: 'Бентли', key: 'Бентли', logo: <AudiLogo /> },
+    { id: 8, text: 'Вольво', key: 'Вольво', alphavit: 'В', logo: <AudiLogo /> },
+    { id: 9, text: 'Винфаст', key: 'Винфаст', logo: <AudiLogo /> },
+    { id: 10, text: 'Виллис', key: 'Виллис', logo: <AudiLogo /> },
+    { id: 11, text: 'Виллис1', key: 'Виллис1', logo: <AudiLogo /> },
+    { id: 12, text: 'Виллис2', key: 'Виллис2', logo: <AudiLogo /> },
+    { id: 13, text: 'Виллис3', key: 'Виллис3', logo: <AudiLogo /> },
 ]
 
 export default function App(props) {
-    const [show_service_filter, setShowServiceFilter] = useState(true)
+    const [show_marks_filter, setShowMarksFilter] = useState(true)
     const [sortBy, setSortBy] = useState('')
-    
 
-    if (show_service_filter) {
+
+
+    if (show_marks_filter) {
         return (
             <View style={styles.mainWrapper}>
-                <TouchableOpacity onPress={() => { setShowServiceFilter(false); props.onChange(); }} style={styles.closeSpaceButton}>
+                <TouchableOpacity onPress={() => { setShowMarksFilter(false); props.onChange(); }} style={styles.closeSpaceButton}>
 
                 </TouchableOpacity>
 
@@ -57,8 +58,8 @@ export default function App(props) {
 
                     <View style={styles.header}>
                         <View></View>
-                        <Text style={styles.mainTitle}>Выбор услуги</Text>
-                        <TouchableOpacity onPress={() => { props.onChange(); setShowServiceFilter(false) }}>
+                        <Text style={styles.mainTitle}>Выбор марки</Text>
+                        <TouchableOpacity onPress={() => { props.onChange(); setShowMarksFilter(false) }}>
                             <CloseSvg />
                         </TouchableOpacity>
                     </View>
@@ -68,8 +69,24 @@ export default function App(props) {
                                 return (
                                     <TouchableOpacity
                                         key={value.key}
-                                        onPress={() => { setSortBy(value.key) }} style={styles.item}>
-                                        <Text style={styles.itemText}>{value.text}</Text>
+                                        onPress={() => {
+                                            setSortBy(value.key);
+                                            setTimeout(() => {
+    
+                                                props.onChange(); setShowMarksFilter(false)
+                                            }, 1000)
+
+                                        }} style={styles.item}>
+
+                                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 10, }} >
+                                            <Text style={[styles.itemText, { fontWeight: '700' }]} >{value.alphavit}</Text>
+                                            <View style={value.alphavit ? { marginLeft: 10 } : { marginLeft: 20 }}>
+                                                {value.logo}
+                                            </View>
+
+                                            <Text style={[styles.itemText, !value.alphavit && !value.logo ? { marginLeft: 62 } : { marginLeft: 10 }]}>{value.text}</Text>
+                                        </View>
+
 
                                         {sortBy === value.key && <SelectedSvg />}
                                     </TouchableOpacity>
@@ -80,7 +97,7 @@ export default function App(props) {
                     </ScrollView>
                     <View style={styles.footer}>
                         <TouchableOpacity
-                            onPress={() => { setShowServiceFilter(false); props.onChange(); }}
+                            onPress={() => { setShowMarksFilter(false); props.onChange(); }}
                             style={styles.button}>
                             <Text style={styles.buttonText}>Закрыть</Text>
                         </TouchableOpacity>
@@ -112,7 +129,7 @@ const styles = StyleSheet.create({
         bottom: 0,
         left: 0,
         flex: 1,
-        maxHeight: 720,
+        maxHeight: 680,
         borderTopRightRadius: 10,
         borderTopLeftRadius: 10
     },

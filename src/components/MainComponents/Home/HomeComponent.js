@@ -378,7 +378,7 @@ export default function App(props) {
 
             </ScrollView>
 
-            <NavigationBottomMenu navigation={props.navigation} active_page={''} />
+            <NavigationBottomMenu navigation={props.navigation} active_page={'Search'} />
 
 
             {/*  Filters - start */}

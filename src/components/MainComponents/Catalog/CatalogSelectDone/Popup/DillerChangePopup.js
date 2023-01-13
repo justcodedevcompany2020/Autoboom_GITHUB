@@ -20,16 +20,14 @@ import {
     initialWindowMetrics,
 } from 'react-native-safe-area-context';
 
-// import SpecialOfferBlock from './includes/SpecialOffer';
-// import NavigationBottomMenu from '../../../includes/NavigationBottomMenu';
+
 
 import { useSelector, useDispatch, } from 'react-redux';
 
 import { closeSelectDonePopUpInCloseSelectDonePage } from '../../../../../redux/actions/actions'
 
 
-import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
-import { useEffect, useState } from "react";
+
 
 import CloseSvg from "../../../../../../assets/Svg/CloseSvg";
 

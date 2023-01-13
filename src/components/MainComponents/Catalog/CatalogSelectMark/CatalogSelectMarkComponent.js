@@ -197,7 +197,7 @@ export default function App(props) {
                 <JournalBlock data={journal_data} />
             </ScrollView>
 
-            <NavigationBottomMenu navigation={props.navigation} active_page={''} />
+            <NavigationBottomMenu navigation={props.navigation} active_page={'Search'} />
 
 
         </SafeAreaView>

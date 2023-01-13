@@ -22,7 +22,7 @@ export default function App(props) {
             style={styles.container}
         >
             <TouchableOpacity
-
+                onPress={() => props.navigation.navigate('CompanyMap')}
                 style={styles.buttons}>
                 <MapIcon />
                 <Text style={styles.text} >На карте</Text>

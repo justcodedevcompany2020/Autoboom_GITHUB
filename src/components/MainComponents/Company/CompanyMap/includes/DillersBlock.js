@@ -10,20 +10,11 @@ import {
     Image,
     Slider
 } from 'react-native';
-
-
-import {
-    SafeAreaView,
-    SafeAreaProvider,
-    SafeAreaInsetsContext,
-    useSafeAreaInsets,
-    initialWindowMetrics,
-} from 'react-native-safe-area-context';
-
 import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
 import { useEffect, useState } from "react";
 
-import UnionSvg from '../../../../../assets/Svg/UnionSvg'
+import UnionSvg from '../../../../../../assets/Svg/UnionSvg'
+
 
 const dataButton = [
     { title: 'Все', id: 1 },
@@ -39,20 +30,9 @@ export default function App(props) {
     const [activeButton, setActiveButton] = React.useState(1);
     const [autosalon, setAutosalon] = useState([
         { title: 'Митсубиси-Хундай Кирьят-Шмона', open: true, show_union: true, id: 1 },
-        { title: 'Митсубиси-Хундай Кирьят-Шмона', open: false, show_union: false, id: 1 },
-        { title: 'Митсубиси-Хундай Кирьят-Шмона', open: true, show_union: true, id: 1 },
-        { title: 'Митсубиси-Хундай Кирьят-Шмона 2', open: true, show_union: true, id: 2 },
-        { title: 'Митсубиси-Хундай Кирьят-Шмона 2', open: false, show_union: false, id: 2 },
-        { title: 'Митсубиси-Хундай Кирьят-Шмона 2', open: true, show_union: true, id: 2 },
-        { title: 'Митсубиси-Хундай Кирьят-Шмона 3', open: true, show_union: true, id: 3 },
-        { title: 'Митсубиси-Хундай Кирьят-Шмона 3', open: false, show_union: false, id: 3 },
-        { title: 'Митсубиси-Хундай Кирьят-Шмона 3', open: true, show_union: true, id: 3 },
+
     ]);
-    const [autoservice, setAutoservice] = useState([
-        { title: 'Митсубиси-Хундай Кирьят-Шмона 2', open: true, show_union: true },
-        { title: 'Митсубиси-Хундай Кирьят-Шмона 2', open: false, show_union: false },
-        { title: 'Митсубиси-Хундай Кирьят-Шмона 2', open: true, show_union: true },
-    ]);
+
 
 
 
@@ -63,7 +43,7 @@ export default function App(props) {
             return (
                 <TouchableOpacity
                     onPress={() => props.navigation.navigate('AboutCompany')}
-                    style={styles.item} key={index}>
+                    activeOpacity={0.7} style={styles.item} key={index}>
                     <View style={styles.topTitleWrapper}>
 
                         <Text style={styles.title}>{item.title}</Text>
@@ -128,33 +108,6 @@ export default function App(props) {
 
     return (
         <View style={styles.dillersTop}>
-            <View style={styles.dillersTopButtonWrapper}>
-                <ScrollView
-                    horizontal={true}
-                    style={{ width: '100%', height: 40, marginLeft: 10 }}
-                >
-                    {dataButton.map((res, index) => {
-                        return (
-                            <TouchableOpacity
-                                key={index}
-                                onPress={() => {
-                                    setActiveButton(res.id);
-                                }}
-                                style={[styles.sliderBlock, activeButton === res.id ? { backgroundColor: '#E6F2FF', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' } : {}]} >
-                                {
-                                    activeButton === res.id &&
-                                    <Svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <Path d="M1.45454 5.175L6.21488 10.125L14.5455 1.875" stroke="#2B65EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </Svg>
-                                }
-
-                                <Text style={[styles.nameButton, activeButton === res.id ? { color: '#2B65EE', marginLeft: 5 } : {}]}  >{res.title}</Text>
-                            </TouchableOpacity>
-                        )
-                    })}
-                </ScrollView>
-
-            </View>
 
             {last_search_active_button == 0 &&
 
@@ -169,28 +122,6 @@ export default function App(props) {
                 </View>
             }
 
-
-
-            {last_search_active_button == 1 &&
-
-                <View style={{ width: '100%', marginBottom: 16, paddingHorizontal: 16 }}>
-
-                    {autoservice.map((item, index) => {
-
-                        return (
-                            printDiller(item, index)
-                        )
-
-                    })}
-                </View>
-            }
-
-            <View style={styles.showMoreButtonWrapper}>
-                <TouchableOpacity style={styles.showMoreButton}>
-                    <Text style={styles.showMoreButtonText}>Показать больше компаний</Text>
-                </TouchableOpacity>
-
-            </View>
         </View>
 
     );
@@ -205,7 +136,10 @@ const styles = StyleSheet.create({
     dillersTop: {
         width: '100%',
         // paddingHorizontal: 16,
-        marginBottom: 16
+        marginBottom: 16,
+        position: 'absolute',
+        bottom: 50
+
     },
     dillersTopTitle: {
         color: '#091334',
@@ -294,10 +228,13 @@ const styles = StyleSheet.create({
         padding: 16,
         width: '100%',
         minHeight: 16,
-        borderColor: '#f1f0f0',
         borderWidth: 1,
         marginBottom: 16,
-        borderRadius: 8
+        borderRadius: 8,
+        backgroundColor: 'white',
+        borderWidth: 1,
+        borderColor: '#C4C8D4',
+        paddingBottom: 20
     },
 
     topTitleWrapper: {
@@ -366,5 +303,6 @@ const styles = StyleSheet.create({
     nameButton: {
         color: '#6C7693',
         fontSize: 16
-    }
+    },
+
 })
