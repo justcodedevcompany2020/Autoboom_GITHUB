@@ -48,11 +48,19 @@ const RootNavigator = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName='HomeComponent'
+                initialRouteName='AuthComponent'
                 screenOptions={{
                     headerShown: false
                 }}
             >
+                <Stack.Screen
+                    name="AuthComponent"
+                    component={AuthComponent}
+                    options={({ route }) => ({
+                        tabBarButton: () => null,
+                        tabBarStyle: { display: 'none' },
+                    })}
+                />
                 <Stack.Screen
                     name="HomeComponent"
                     component={HomeComponent}
@@ -62,14 +70,7 @@ const RootNavigator = () => {
                     })}
                 />
 
-                <Stack.Screen
-                    name="AuthComponent"
-                    component={AuthComponent}
-                    options={({ route }) => ({
-                        tabBarButton: () => null,
-                        tabBarStyle: { display: 'none' },
-                    })}
-                />
+
 
                 <Stack.Screen
                     name="SearchComponent"
@@ -219,6 +220,11 @@ const RootNavigator = () => {
                         tabBarStyle: { display: 'none' },
                     })}
                 />
+
+
+
+
+
             </Stack.Navigator>
         </NavigationContainer>
     );

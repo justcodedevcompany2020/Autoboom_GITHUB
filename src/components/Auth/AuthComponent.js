@@ -35,7 +35,7 @@ export default function App(props) {
     const [valid_phone, setValidPhone] = useState(false);
 
 
-    const [call_code_popup, setCallCodePopup] = useState(true);
+    const [call_code_popup, setCallCodePopup] = useState(false);
 
     const [call_code1, setCallCode1] = useState('');
     const [call_code1_field_error, setCallCode1FieldError] = useState(false);
@@ -49,10 +49,38 @@ export default function App(props) {
     const [call_code3_field_error, setCallCode3FieldError] = useState(false);
     const [call_code3_field_valid, setCallCode3FieldValid] = useState(true);
 
-
     const [call_code4, setCallCode4] = useState('');
     const [call_code4_field_error, setCallCode4FieldError] = useState(false);
     const [call_code4_field_valid, setCallCode4FieldValid] = useState(true);
+    const [call_popup_countdown_timer_number, setCallPopupCountdownTimerNumber] = useState(5);
+
+    const [show_timer_for_call_popup, setShowTimerForCallPopup] = useState(true);
+
+
+
+    const [message_code_popup, setMessageCodePopup] = useState(false);
+    const [show_timer_for_message_popup, setShowTimerForMessagePopup] = useState(true);
+    const [message_popup_countdown_timer_number, setMessagePopupCountdownTimerNumber] = useState(5);
+
+
+    const [message_code1, setMessageCode1] = useState('');
+    const [message_code1_field_error, setMessageCode1FieldError] = useState(false);
+    const [message_code1_field_valid, setMessageCode1FieldValid] = useState(true);
+
+    const [message_code2, setMessageCode2] = useState('');
+    const [message_code2_field_error, setMessageCode2FieldError] = useState(false);
+    const [message_code2_field_valid, setMessageCode2FieldValid] = useState(true);
+
+    const [message_code3, setMessageCode3] = useState('');
+    const [message_code3_field_error, setMessageCode3FieldError] = useState(false);
+    const [message_code3_field_valid, setMessageCode3FieldValid] = useState(true);
+
+
+    const [message_code4, setMessageCode4] = useState('');
+    const [message_code4_field_error, setMessageCode4FieldError] = useState(false);
+    const [message_code4_field_valid, setMessageCode4FieldValid] = useState(true)
+
+
 
 
     const call_firstInput_ref = useRef(null)
@@ -78,10 +106,66 @@ export default function App(props) {
 
     const callToNumber = async () =>
     {
-        // call api
-
         setCallCodePopup(true)
+
+
+        // call api
+        startCallpopupInterval()
+
+
     }
+
+
+    const startCallpopupInterval = async () => {
+        setCallPopupCountdownTimerNumber(5)
+        setCallCodePopup(true)
+        setShowTimerForCallPopup(true)
+
+        let interval = setInterval(() => {
+
+            setCallPopupCountdownTimerNumber((prevState) => {
+                console.log('dwd')
+                if (prevState > 0) {
+                    return prevState -1;
+                } else {
+                    clearInterval(interval);
+                    return 0;
+                }
+            });
+
+        }, 1000);
+
+
+    }
+
+
+    const messageToNumber = async () => {
+        setMessagePopupCountdownTimerNumber(5)
+        setCallCodePopup(false)
+        setMessageCodePopup(true)
+
+        let interval = setInterval(() => {
+
+            setMessagePopupCountdownTimerNumber((prevState) => {
+                console.log('dwd')
+                if (prevState > 0) {
+                    return prevState -1;
+                } else {
+                    clearInterval(interval);
+                    return 0;
+                }
+            });
+
+
+            // show_timer_for_call_popup(false)
+
+            // let f = setCallPopupCountdownTimerNumber((t) => t - 1)
+
+
+        }, 1000);
+    }
+
+
     const changeFirstCodeInput =  (value) => {
         if (value.length < 2) {
 
@@ -162,13 +246,16 @@ export default function App(props) {
 
 
 
+
+
+
     if(call_code_popup)
     {
         return (
 
             <SafeAreaView style={styles.container}>
 
-                <View style={styles.header}>
+                <View style={[styles.header, {marginBottom: 24}]}>
 
                     <View style={{flex:1}}>
                         <TouchableOpacity onPress={() => {setCallCodePopup(false)}}>
@@ -220,11 +307,114 @@ export default function App(props) {
                     />
 
                 </View>
+
+                <View style={{flexDirection: 'row', width: '100%', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20, paddingTop: 12}}>
+
+
+                    {show_timer_for_call_popup && call_popup_countdown_timer_number > 0
+                        ?
+                        <Text style={styles.timer_text}>Звонок поступит в течение 0:{call_popup_countdown_timer_number}</Text>
+                        :
+                        <TouchableOpacity style={styles.call_not_received} onPress={() => {messageToNumber()}} ><Text style={styles.call_not_received_text}>Звонок не поступил?</Text></TouchableOpacity>
+
+                    }
+                    {call_code1_field_error && call_code2_field_error && call_code3_field_error && call_code4_field_error &&
+                        <Text style={styles.call_popup_mistake_numbers_error}>Цифры неверны</Text>
+                    }
+                </View>
+
             </SafeAreaView>
 
         )
     }
 
+
+
+    if(message_code_popup)
+    {
+        return (
+
+            <SafeAreaView style={styles.container}>
+
+                <View style={[styles.header, {marginBottom: 24}]}>
+
+                    <View style={{flex:1}}>
+                        <TouchableOpacity onPress={() => {setMessageCodePopup(false) }}>
+                            <Svg width={43} height={44} viewBox="0 0 43 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <Path d="M25 15l-6.93 6.93a.1.1 0 000 .14L25 29" stroke="#091334" strokeWidth={2} strokeLinecap="round"/>
+                            </Svg>
+                        </TouchableOpacity>
+                    </View>
+                    <LogoSvg/>
+                    <View style={{flex:1, alignItems:'flex-end'}}>
+
+                    </View>
+
+                </View>
+
+                <Text style={styles.title5}>Мы отправили вам SMS. Пожалуйста, введите <Text style={styles.title6}>код из 5 цифр</Text></Text>
+
+                <View style={styles.call_code_inputs_wrapper}>
+                    <TextInput
+                        ref={call_firstInput_ref}
+                        style={[styles.code_input_field,  {borderWidth: 1, borderColor:message_code1_field_error ? "#A4223C" :  "#C4C8D4"} ]}
+                        onChangeText={(value) => {changeFirstCodeInput(value)}}
+                        value={call_code1}
+                        placeholderTextColor="#000000"
+                        keyboardType="numeric"
+
+                    />
+                    <TextInput
+                        ref={call_secondInput_ref}
+                        style={[styles.code_input_field,  {borderWidth: 1, borderColor:message_code2_field_error ? "#A4223C" :  "#C4C8D4"} ]}
+                        onChangeText={(value) => {changeSecondCodeInput(value)}}
+
+                        value={call_code2}
+                        keyboardType="numeric"
+                    />
+                    <TextInput
+                        ref={call_thirdInput_ref}
+                        style={[styles.code_input_field,  {borderWidth: 1, borderColor:message_code3_field_error ? "#A4223C" :  "#C4C8D4"} ]}
+                        onChangeText={(value) => {changeThirdCodeInput(value)}}
+                        value={call_code3}
+                        keyboardType="numeric"
+                    />
+                    <TextInput
+                        ref={call_fourthInput_ref}
+                        style={[styles.code_input_field,  {borderWidth: 1, borderColor:message_code4_field_error ? "#A4223C" :  "#C4C8D4"} ]}
+                        onChangeText={(value) => {changeFourthCodeInput(value)}}
+                        value={call_code4}
+                        keyboardType="numeric"
+                    />
+
+                </View>
+
+                <View style={{flexDirection: 'row', width: '100%', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20, paddingTop: 12}}>
+
+
+                    {show_timer_for_message_popup && message_popup_countdown_timer_number > 0
+                        ?
+                        <Text style={styles.timer_text}>SMS поступит в течение 0:{message_popup_countdown_timer_number}</Text>
+                        :
+                        <TouchableOpacity style={styles.call_not_received}
+                              onPress={() => {
+                                  startCallpopupInterval()
+                              }}
+                        >
+                            <Text style={styles.call_not_received_text}>SMS не пришло?</Text>
+                        </TouchableOpacity>
+
+                    }
+                    {message_code1_field_error && message_code2_field_error && message_code3_field_error && message_code4_field_error &&
+                    <Text style={styles.call_popup_mistake_numbers_error}>Код неверный</Text>
+
+                    }
+                </View>
+
+            </SafeAreaView>
+
+        )
+    }
 
 
     return (
@@ -466,7 +656,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         lineHeight: 24,
         textAlign:'center',
-        maxWidth: 300
+        maxWidth: 320,
     },
     title6: {
         fontWeight: 'bold'
@@ -487,5 +677,31 @@ const styles = StyleSheet.create({
         textAlign:'center',
         fontSize: 18,
         fontWeight: 'bold'
+    },
+    timer_text: {
+        color: '#6C7694',
+        fontSize: 14,
+        fontWeight: '400',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+        alignSelf: 'flex-start',
+    },
+
+    call_not_received: {
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+        alignSelf: 'flex-start',
+    },
+    call_not_received_text: {
+        color: '#2B65EE',
+        fontSize: 14,
+        fontWeight: '400',
+
+    },
+
+    call_popup_mistake_numbers_error: {
+        color: '#E72A4A',
+        fontSize: 14,
+        fontWeight: '400',
     }
 })
