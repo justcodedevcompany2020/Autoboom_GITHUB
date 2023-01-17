@@ -29,6 +29,10 @@ import CompanyScreen from '../components/MainComponents/Company/CompanyScreen'
 import CompanyFilter from '../components/MainComponents/Company/CompanyFilter/CompanyFilter'
 import CompanyMap from '../components/MainComponents/Company/CompanyMap/CompanyMap'
 import AboutCompany from '../components/MainComponents/Company/AboutCompany/AboutCompany'
+import MyProfile from '../components/MainComponents/Profile/ProfileScreen'
+import OurServices from '../components/MainComponents/Company/OurServices/OurServices'
+import MyAnnouncements from '../components/MainComponents/Profile/MyAnnouncements/MyAnnouncements'
+import WalletScreen from '../components/MainComponents/Profile/Wallet/Wallet'
 
 
 // const Tab = createBottomTabNavigator();
@@ -48,22 +52,23 @@ const RootNavigator = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName='AuthComponent'
+                initialRouteName='HomeComponent'
                 screenOptions={{
                     headerShown: false
                 }}
             >
                 <Stack.Screen
-                    name="AuthComponent"
-                    component={AuthComponent}
+                    name="HomeComponent"
+                    component={HomeComponent}
                     options={({ route }) => ({
                         tabBarButton: () => null,
                         tabBarStyle: { display: 'none' },
                     })}
                 />
+
                 <Stack.Screen
-                    name="HomeComponent"
-                    component={HomeComponent}
+                    name="AuthComponent"
+                    component={AuthComponent}
                     options={({ route }) => ({
                         tabBarButton: () => null,
                         tabBarStyle: { display: 'none' },
@@ -221,10 +226,39 @@ const RootNavigator = () => {
                     })}
                 />
 
+                <Stack.Screen
+                    name='MyProfile'
+                    component={MyProfile}
+                    options={({ route }) => ({
+                        tabBarButton: () => null,
+                        tabBarStyle: { display: 'none' },
+                    })}
+                />
 
-
-
-
+                <Stack.Screen
+                    name='MyAnnouncements'
+                    component={MyAnnouncements}
+                    options={({ route }) => ({
+                        tabBarButton: () => null,
+                        tabBarStyle: { display: 'none' },
+                    })}
+                />
+                <Stack.Screen
+                    name='OurServices'
+                    component={OurServices}
+                    options={({ route }) => ({
+                        tabBarButton: () => null,
+                        tabBarStyle: { display: 'none' },
+                    })}
+                />
+                <Stack.Screen
+                    name='WalletScreen'
+                    component={WalletScreen}
+                    options={({ route }) => ({
+                        tabBarButton: () => null,
+                        tabBarStyle: { display: 'none' },
+                    })}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );

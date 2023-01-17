@@ -11,34 +11,38 @@ import {
     Slider
 } from 'react-native';
 
-import { useRoute } from '@react-navigation/native';
 
 export default function App(props) {
-    const route = useRoute();
+
     const [active_top_tab1, setActiveTopTab1] = React.useState(true);
     const [active_top_tab2, setActiveTopTab2] = React.useState(false);
     const [active_top_tab3, setActiveTopTab3] = React.useState(false);
     return (
         <View style={styles.tabsBeegMainWrapper}>
+            <Text style={styles.smsText} >Уведомления о сообщениях</Text>
             <View style={styles.tabsMainWrapper}>
                 <View style={styles.tabsWrapper}>
 
                     <TouchableOpacity
                         onPress={() => {
-                            props.navigation.navigate('AboutCompany')
+                            setActiveTopTab1(true);
+                            setActiveTopTab2(false);
+                            setActiveTopTab3(false);
                         }}
-                        style={[styles.flex1, styles.tabsItem, route.name === 'AboutCompany' && styles.tabsItemActive]}
+                        style={[styles.flex1, styles.tabsItem, active_top_tab1 && styles.tabsItemActive]}
                     >
-                        <Text style={[styles.tabsItemText, active_top_tab1 && styles.tabsItemTextActive]}>О компании</Text>
+                        <Text style={[styles.tabsItemText, active_top_tab1 && styles.tabsItemTextActive]}>По SMS</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
                         onPress={() => {
-                            props.navigation.navigate('OurServices')
+                            setActiveTopTab1(false);
+                            setActiveTopTab2(true);
+                            setActiveTopTab3(false);
                         }}
-                        style={[styles.flex1, styles.tabsItem, route.name === 'OurServices' && styles.tabsItemActive]}
+                        style={[styles.flex1, styles.tabsItem, active_top_tab2 && styles.tabsItemActive]}
                     >
-                        <Text style={[styles.tabsItemText, active_top_tab2 && styles.tabsItemTextActive]}>Услуги</Text>
+                        <Text style={[styles.tabsItemText, active_top_tab2 && styles.tabsItemTextActive]}>По звонку</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
@@ -49,7 +53,7 @@ export default function App(props) {
                         }}
                         style={[styles.flex1, styles.tabsItem, active_top_tab3 && styles.tabsItemActive]}
                     >
-                        <Text style={[styles.tabsItemText, active_top_tab3 && styles.tabsItemTextActive]}>Объявления</Text>
+                        <Text style={[styles.tabsItemText, active_top_tab3 && styles.tabsItemTextActive]}>Не получать</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -109,4 +113,10 @@ const styles = StyleSheet.create({
     tabsItemTextActive: {
         color: '#091334'
     },
+    smsText:{
+        color: '#091334', 
+        fontSize:16,
+        fontWeight:'700' ,
+        marginBottom:20
+    }
 })

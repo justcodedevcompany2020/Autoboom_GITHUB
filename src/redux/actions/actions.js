@@ -16,6 +16,18 @@ export const CLOSE_KOMPLEKTACIA_POPUP_IN_CATALOG_SELECT_KOMPLEKTACIA_PAGE = 'CLO
 export const OPEN_SELECT_DONE_POPUP_IN_CATALOG_SELECT_DONE_PAGE = 'OPEN_SELECT_DONE_POPUP_IN_CATALOG_SELECT_DONE_PAGE';
 export const CLOSE_SELECT_DONE_POPUP_IN_CATALOG_SELECT_DONE_PAGE = 'CLOSE_SELECT_DONE_POPUP_IN_CATALOG_SELECT_DONE_PAGE';
 
+export const OPEN_LANGUAGES_POPUP_IN_MY_PROFILE = 'OPEN_LANGUAGES_POPUP_IN_MY_PROFILE';
+export const CLOSE_LANGUAGES_POPUP_IN_MY_PROFILE = 'CLOSE_LANGUAGES_POPUP_IN_MY_PROFILE';
+
+export const OPEN_ACCOUNT_EDIT_POPUP_IN_MY_PROFILE = 'OPEN_ACCOUNT_EDIT_POPUP_IN_MY_PROFILE';
+export const CLOSE_ACCOUNT_EDIT_POPUP_IN_MY_PROFILE = 'CLOSE_ACCOUNT_EDIT_POPUP_IN_MY_PROFILE';
+
+export const OPEN_NAME_EDIT_POPUP_IN_MY_PROFILE = 'OPEN_NAME_EDIT_POPUP_IN_MY_PROFILE';
+export const CLOSE_NAME_EDIT_POPUP_IN_MY_PROFILE = 'CLOSE_NAME_EDIT_POPUP_IN_MY_PROFILE';
+
+export const OPEN_EMAIL_POPUP_IN_MY_PROFILE = 'OPEN_EMAIL_POPUP_IN_MY_PROFILE'
+export const CLOSE_EMAIL_POPUP_IN_MY_PROFILE = 'CLOSE_EMAIL_POPUP_IN_MY_PROFILE'
+
 export const openMarkiPopUpInCatalogSelectMarkPage = () => dispatch => {
     // console.log(from_address_data, 'setFromAddressData ACTIONS');
 
@@ -131,3 +143,64 @@ export const closeSelectDonePopUpInCloseSelectDonePage = () => dispatch => {
     });
 }
 
+
+export const openLanguagesPopupInMyProfile = () => dispatch => {
+    dispatch({
+        type: OPEN_LANGUAGES_POPUP_IN_MY_PROFILE,
+        payload: null
+    })
+}
+
+
+export const closeLanguagesPopupInMyProfile = () => dispatch => {
+    dispatch({
+        type: CLOSE_LANGUAGES_POPUP_IN_MY_PROFILE,
+        payload: null
+    })
+}
+
+
+export const openAccaountEditPopupInMyProfile = () => dispatch => {
+    dispatch({
+        type: OPEN_ACCOUNT_EDIT_POPUP_IN_MY_PROFILE,
+        payload: null
+    })
+}
+
+
+export const closeAccaountEditPopupInMyProfile = () => dispatch => {
+    dispatch({
+        type: CLOSE_ACCOUNT_EDIT_POPUP_IN_MY_PROFILE,
+        payload: null
+    })
+}
+
+export const openNameEditPopupInMyProfile = () => dispatch => {
+    dispatch({
+        type: OPEN_NAME_EDIT_POPUP_IN_MY_PROFILE,
+        payload: null
+    })
+}
+
+
+export const closeNameEditPopupInMyProfile = () => dispatch => {
+    dispatch({
+        type: CLOSE_NAME_EDIT_POPUP_IN_MY_PROFILE,
+        payload: null
+    })
+}
+
+export const openEmailPopupInMyProfile = () => dispatch => {
+    dispatch({
+        type: OPEN_EMAIL_POPUP_IN_MY_PROFILE,
+        payload: null
+    })
+}
+
+
+export const closeEmailPopupInMyProfile = () => dispatch => {
+    dispatch({
+        type: CLOSE_EMAIL_POPUP_IN_MY_PROFILE,
+        payload: null
+    })
+}

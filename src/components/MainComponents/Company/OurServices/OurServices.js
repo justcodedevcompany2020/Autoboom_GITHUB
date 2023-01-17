@@ -13,59 +13,56 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Defs, G, Path, Rect, Circle, ClipPath } from "react-native-svg";
-import Navigation from './includes/Navigation'
-import ServiceBlock from './includes/ServiceBlock'
-import Footer from './includes/Footer'
-import DillerBlock from './includes/DillersBlock'
-import AutoCard from '../../../MainComponents/Search/includes/AutoCard'
-import TimeToWork from './includes/TimeToWork'
-import Description from './includes/Description'
-
-
-const descriptionData = [
-    {
-        id: 1,
-        title: 'Выхлопная система',
-        data: [
-            { id: 1, secondText: 'Замена впускного коллектора' },
-            { id: 2, secondText: 'Замена прокладки впускного-выпускного коллектора' },
-            { id: 3, secondText: 'Замена глушителя' },
-            { id: 4, secondText: 'Замена лямбда зонда' },
-            { id: 5, secondText: 'Установка пламегасителя' }
-        ]
-    },
-    {
-        id: 2,
-        title: 'Диагностика',
-        data: [
-            { id: 1, secondText: 'Замена впускного коллектора' },
-            { id: 3, secondText: 'Замена глушителя' },
-            { id: 5, secondText: 'Установка пламегасителя' }
-        ]
-    },
-    {
-        id: 2,
-        title: 'Двигатель',
-        data: [
-            { id: 1, secondText: 'Замена впускного коллектора' },
-            { id: 2, secondText: 'Замена прокладки впускного-выпускного коллектора' },
-            { id: 3, secondText: 'Замена глушителя' },
-
-        ]
-    },
-    {
-        id: 2,
-        title: 'Замена жидкостей',
-        data: [
-            { id: 1, secondText: 'Замена впускного коллектора' },
-            { id: 4, secondText: 'Замена лямбда зонда' },
-            { id: 5, secondText: 'Установка пламегасителя' }
-        ]
-    },
-]
+import Navigation from '../AboutCompany/includes/Navigation';
+import Footer from '../AboutCompany/includes/Footer';
+import Description from '../AboutCompany/includes/Description';
 
 
 export default function App(props) {
+
+    const descriptionData = [
+        {
+            id: 1,
+            title: 'Выхлопная система',
+            data: [
+                { id: 1, secondText: 'Замена впускного коллектора' },
+                { id: 2, secondText: 'Замена прокладки впускного-выпускного коллектора' },
+                { id: 3, secondText: 'Замена глушителя' },
+                { id: 4, secondText: 'Замена лямбда зонда' },
+                { id: 5, secondText: 'Установка пламегасителя' }
+            ]
+        },
+        {
+            id: 2,
+            title: 'Диагностика',
+            data: [
+                { id: 1, secondText: 'Замена впускного коллектора' },
+                { id: 3, secondText: 'Замена глушителя' },
+                { id: 5, secondText: 'Установка пламегасителя' }
+            ]
+        },
+        {
+            id: 2,
+            title: 'Двигатель',
+            data: [
+                { id: 1, secondText: 'Замена впускного коллектора' },
+                { id: 2, secondText: 'Замена прокладки впускного-выпускного коллектора' },
+                { id: 3, secondText: 'Замена глушителя' },
+
+            ]
+        },
+        {
+            id: 2,
+            title: 'Замена жидкостей',
+            data: [
+                { id: 1, secondText: 'Замена впускного коллектора' },
+                { id: 4, secondText: 'Замена лямбда зонда' },
+                { id: 5, secondText: 'Установка пламегасителя' }
+            ]
+        },
+    ]
+
+
 
     return (
         <SafeAreaView style={styles.container} >
@@ -92,13 +89,9 @@ export default function App(props) {
             </View>
             <ScrollView style={{ width: '100%', flex: 1 }} >
                 <Navigation navigation={props.navigation} />
-
                 <View style={{ paddingHorizontal: 16 }} >
-                    <ServiceBlock />
-                    <TimeToWork />
                     <Text style={styles.blackText} >Наши услуги</Text>
                 </View>
-
                 {
                     descriptionData.map((value, index) => {
                         return (
@@ -106,14 +99,6 @@ export default function App(props) {
                         )
                     })
                 }
-                <View style={{ marginTop: 10 }} >
-                    <AutoCard />
-                </View>
-                <View style={{ marginTop: 10 }} >
-                    <AutoCard />
-                </View>
-
-                <DillerBlock />
             </ScrollView>
             <Footer />
         </SafeAreaView>
